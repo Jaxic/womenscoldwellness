@@ -282,10 +282,20 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     object-position: center center;
   }
 
-  /* ONLY fix portrait video zoom - keep everything else the same */
+  /* Mobile portrait - focus on the woman in the cold plunge area */
   @media (max-width: 768px) and (orientation: portrait) {
     .hero-video {
-      transform: scale(0.8);
+      object-fit: cover;
+      object-position: 30% center; /* Focus on left-center area where woman is */
+      transform: scale(1.2); /* Zoom in to focus on the cold plunge area */
+    }
+  }
+
+  /* Mobile landscape - keep normal view */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .hero-video {
+      object-fit: cover;
+      object-position: center center;
     }
   }
 
