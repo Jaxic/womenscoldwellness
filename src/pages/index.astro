@@ -1,16 +1,597 @@
 ---
-
+// Import the global CSS to enable Tailwind
+import '../styles/global.css';
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>Women's Cold Plunge Benefits | Wellness for Women</title>
+    <meta name="description" content="Discover how cold plunging boosts women's hormonal balance, stress relief, and recovery. Expert guide to cold therapy benefits designed specifically for women." />
+    <meta name="keywords" content="cold plunge for women, womens wellness, hormonal balance, stress relief, recovery" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Women's Cold Plunge Benefits | Wellness for Women" />
+    <meta property="og:description" content="Discover how cold plunging boosts women's hormonal balance, stress relief, and recovery." />
+    <meta property="og:type" content="website" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Women's Cold Plunge Benefits",
+        "description": "Discover how cold plunging boosts women's hormonal balance, stress relief, and recovery",
+        "url": "https://example.com",
+        "inLanguage": "en-US"
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Custom Properties for Animation Control */
+        :root {
+            --animation-duration-fast: 0.3s;
+            --animation-duration-normal: 0.6s;
+            --animation-duration-slow: 1.2s;
+            --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+            --animation-stagger: 0.1s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            :root {
+                --animation-duration-fast: 0.01ms;
+                --animation-duration-normal: 0.01ms;
+                --animation-duration-slow: 0.01ms;
+            }
+
+            .hero-video,
+            .headline-word,
+            .hero-subheadline,
+            .cta-button,
+            .benefit-card,
+            .nav-logo,
+            .nav-link::after {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* Navigation Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .nav-logo {
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(74, 144, 226, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+
+        .nav-logo:hover::before {
+            width: 100%;
+            height: 100%;
+            animation: ripple 0.6s ease-out;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color var(--animation-duration-fast) ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4A90E2;
+            transition: width var(--animation-duration-fast) ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Video Background Animations */
+        .hero-video {
+            opacity: 0;
+            animation: fadeInVideo 1.5s ease-in 0.5s forwards;
+        }
+
+        @keyframes fadeInVideo {
+            to { opacity: 1; }
+        }
+
+        /* Hero Text Animations */
+        .headline-word {
+            display: inline-block;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+            margin-right: 0.5rem;
+        }
+
+        .headline-word:nth-child(1) { animation-delay: 0.2s; }
+        .headline-word:nth-child(2) { animation-delay: 0.3s; }
+        .headline-word:nth-child(3) { animation-delay: 0.4s; }
+        .headline-word:nth-child(4) { animation-delay: 0.5s; }
+        .headline-word:nth-child(5) { animation-delay: 0.6s; }
+        .headline-word:nth-child(6) { animation-delay: 0.7s; }
+
+        .highlight {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 0.8s ease-out forwards, shimmer 2s ease-in-out infinite 1s;
+        }
+
+        .hero-subheadline {
+            opacity: 0;
+            animation: slideInLeft 1s ease-out 0.8s forwards;
+        }
+
+        .cta-button {
+            opacity: 0;
+            animation: bounceIn 0.6s ease-out 1.2s forwards;
+            transition: all var(--animation-duration-fast) ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(244, 196, 48, 0.3);
+        }
+
+        /* Keyframe Animations */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: translateY(50px) scale(0.8); }
+            60% { transform: translateY(-10px) scale(1.05); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Card Animations */
+        @keyframes cardSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-card {
+            opacity: 0;
+            transition: all var(--animation-duration-fast) ease;
+        }
+
+        .benefit-card.animate-slide-up {
+            animation: cardSlideUp 0.8s ease-out forwards;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.15);
+        }
+
+        .benefit-card:hover .card-icon {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            80% { transform: translateY(-5px); }
+        }
+
+        /* Navigation slide animations */
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-visible {
+            transform: translateY(0);
+        }
+
+        /* Mobile menu animations */
+        .mobile-menu-enter {
+            animation: slideInRight 0.4s ease-out forwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hamburger animation */
+        .hamburger {
+            transition: all var(--animation-duration-fast) ease;
+        }
+
+        .hamburger.active {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="m-0 p-0 font-[Open-Sans] text-gray-800">
+
+    <!-- Animated Sticky Navigation Bar -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 px-4 py-4 transition-transform duration-300 nav-visible">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Animated Logo -->
+            <div class="nav-logo font-[Montserrat] font-bold text-xl text-[#4A90E2] cursor-pointer">
+                Women's Cold Plunge
+            </div>
+
+            <!-- Desktop Menu with Animated Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Home</a>
+                <a href="/benefits" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Benefits</a>
+                <a href="/tubs" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Best Tubs</a>
+                <a href="/blog" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Blog</a>
+                <a href="/about" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">About</a>
+            </div>
+
+            <!-- Animated Mobile Hamburger -->
+            <button
+                id="menu-toggle"
+                class="hamburger md:hidden text-[#2D3748] text-2xl"
+                aria-label="Toggle navigation"
+            >
+                ☰
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-4">
+                <a href="/" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Home</a>
+                <a href="/benefits" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Benefits</a>
+                <a href="/tubs" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Best Tubs</a>
+                <a href="/blog" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">Blog</a>
+                <a href="/about" class="nav-link text-[#2D3748] hover:text-[#4A90E2]">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated Hero Section with Video Background -->
+    <section class="hero-section relative h-screen overflow-hidden">
+        <!-- Video Background Container -->
+        <div class="hero-video-container absolute inset-0">
+            <video
+                class="hero-video w-full h-full object-cover"
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="/favicon.svg">
+                <source src="/assets/Full.webm" type="video/webm">
+                <!-- Fallback image for unsupported browsers -->
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Women's cold plunge wellness" class="w-full h-full object-cover">
+            </video>
+            <!-- Dark overlay for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <!-- Animated Headline -->
+            <h1 class="hero-headline text-white font-[Montserrat] font-bold text-4xl md:text-6xl mb-6 leading-tight">
+                <span class="headline-word">Unlock</span>
+                <span class="headline-word highlight">Women's</span>
+                <span class="headline-word highlight">Wellness</span>
+                <span class="headline-word">with</span>
+                <span class="headline-word">Cold</span>
+                <span class="headline-word">Plunging</span>
+            </h1>
+
+            <!-- Animated Subheadline -->
+            <p class="hero-subheadline text-white/90 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed">
+                Boost hormonal balance, reduce stress, and enhance recovery—designed for women.
+            </p>
+
+            <!-- Interactive CTA Button -->
+            <a
+                href="/benefits"
+                class="cta-button bg-[#F4C430] text-white font-semibold px-8 py-4 rounded-lg text-lg inline-block"
+                aria-label="Discover cold plunge benefits"
+            >
+                Discover Benefits
+            </a>
+        </div>
+    </section>
+
+    <!-- Scroll-Triggered Benefits Teaser Section -->
+    <section class="bg-[#E6F0FA] py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Animated Card 1: Balance Hormones -->
+                <div class="benefit-card bg-white rounded-lg shadow-sm p-6 text-center">
+                    <!-- Animated Icon -->
+                    <div class="card-icon mb-4 flex justify-center">
+                        <svg class="w-8 h-8 text-[#4A90E2]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-[Montserrat] font-bold text-xl text-[#2D3748] mb-3">
+                        Balance Hormones
+                    </h3>
+                    <p class="text-[#4A90E2] mb-4">
+                        Support hormonal health with cold plunging.
+                    </p>
+                    <a
+                        href="/benefits/hormonal-balance"
+                        class="text-[#4A90E2] hover:text-[#2B6CB0] font-semibold transition-colors duration-300"
+                        aria-label="Learn about hormonal balance benefits"
+                    >
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Animated Card 2: Reduce Stress -->
+                <div class="benefit-card bg-white rounded-lg shadow-sm p-6 text-center">
+                    <!-- Animated Icon -->
+                    <div class="card-icon mb-4 flex justify-center">
+                        <svg class="w-8 h-8 text-[#4A90E2]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-[Montserrat] font-bold text-xl text-[#2D3748] mb-3">
+                        Reduce Stress
+                    </h3>
+                    <p class="text-[#4A90E2] mb-4">
+                        Ease stress and boost mood with cold therapy.
+                    </p>
+                    <a
+                        href="/benefits/stress-recovery"
+                        class="text-[#4A90E2] hover:text-[#2B6CB0] font-semibold transition-colors duration-300"
+                        aria-label="Learn about stress relief benefits"
+                    >
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Animated Card 3: Boost Recovery -->
+                <div class="benefit-card bg-white rounded-lg shadow-sm p-6 text-center">
+                    <!-- Animated Icon -->
+                    <div class="card-icon mb-4 flex justify-center">
+                        <svg class="w-8 h-8 text-[#4A90E2]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 9h-7l1.79-3.58C16.63 5.16 16.78 5 17 5s0.37 0.16 0.21 0.42L16 9h6c0.55 0 1 0.45 1 1v2c0 0.55-0.45 1-1 1h-6l1.21 3.58C17.37 16.84 17.22 17 17 17s-0.37-0.16-0.21-0.42L18 13h-7v8c0 0.55-0.45 1-1 1s-1-0.45-1-1v-8H2c-0.55 0-1-0.45-1-1v-2c0-0.55 0.45-1 1-1h7V2c0-0.55 0.45-1 1-1s1 0.45 1 1v7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-[Montserrat] font-bold text-xl text-[#2D3748] mb-3">
+                        Boost Recovery
+                    </h3>
+                    <p class="text-[#4A90E2] mb-4">
+                        Speed up recovery after workouts.
+                    </p>
+                    <a
+                        href="/benefits/stress-recovery"
+                        class="text-[#4A90E2] hover:text-[#2B6CB0] font-semibold transition-colors duration-300"
+                        aria-label="Learn about recovery benefits"
+                    >
+                        Learn More →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Footer -->
+    <footer class="bg-[#2D3748] text-white py-6 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+
+                <!-- Left: Legal Links -->
+                <div class="flex space-x-6 text-sm">
+                    <a href="/disclosure" class="nav-link hover:text-[#4A90E2]">
+                        Affiliate Disclosure
+                    </a>
+                    <a href="/privacy" class="nav-link hover:text-[#4A90E2]">
+                        Privacy Policy
+                    </a>
+                </div>
+
+                <!-- Center: Social Icons -->
+                <div class="flex space-x-4">
+                    <a
+                        href="#"
+                        class="text-white hover:text-[#4A90E2] transition-all duration-300 hover:scale-110"
+                        aria-label="Follow on Instagram"
+                    >
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a
+                        href="#"
+                        class="text-white hover:text-[#4A90E2] transition-all duration-300 hover:scale-110"
+                        aria-label="Follow on Pinterest"
+                    >
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.374 0 0 5.372 0 12.017 0 16.4 2.331 20.027 5.72 21.852c-.069-.654-.133-1.66.028-2.375.145-.646.93-3.946.93-3.946s-.237-.475-.237-1.177c0-1.104.64-1.928 1.437-1.928.677 0 1.006.51 1.006 1.122 0 .682-.434 1.704-.659 2.65-.187.793.398 1.44 1.179 1.44 1.416 0 2.505-1.492 2.505-3.65 0-1.91-1.374-3.243-3.334-3.243-2.272 0-3.608 1.704-3.608 3.466 0 .688.265 1.425.595 1.826a.24.24 0 01.056.23c-.061.252-.196.796-.223.907-.035.146-.116.177-.268.107-1.001-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.287-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.924l-.498 1.902c-.181.695-.669 1.566-.995 2.097A12.013 12.013 0 0012 24c6.624 0 12-5.372 12-11.983C24 5.372 18.626.001 12.001.001z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Right: Copyright -->
+                <div class="text-sm">
+                    © 2025 Women's Cold Plunge Benefits
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Manager Script -->
+    <script>
+        class AnimationManager {
+            constructor() {
+                this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                this.isMobile = window.innerWidth < 768;
+                this.lastScrollY = window.scrollY;
+                this.setupIntersectionObserver();
+                this.setupScrollListeners();
+                this.setupMobileMenu();
+                this.handleVideoPlayback();
+            }
+
+            animate(element, animationClass, delay = 0) {
+                if (this.reducedMotion) return;
+                setTimeout(() => {
+                    element.classList.add(animationClass);
+                }, delay);
+            }
+
+            setupIntersectionObserver() {
+                if (this.reducedMotion) return;
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('animate-slide-up');
+                            }, index * 200); // Stagger delay
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                // Observe benefit cards
+                document.querySelectorAll('.benefit-card').forEach(card => {
+                    observer.observe(card);
+                });
+            }
+
+            setupScrollListeners() {
+                let ticking = false;
+                const nav = document.getElementById('main-nav');
+
+                const handleScroll = () => {
+                    const currentScrollY = window.scrollY;
+
+                    // Hide/show navigation based on scroll direction
+                    if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
+                        nav.classList.remove('nav-visible');
+                        nav.classList.add('nav-hidden');
+                    } else {
+                        nav.classList.remove('nav-hidden');
+                        nav.classList.add('nav-visible');
+                    }
+
+                    this.lastScrollY = currentScrollY;
+                    ticking = false;
+                };
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        requestAnimationFrame(handleScroll);
+                        ticking = true;
+                    }
+                });
+            }
+
+            setupMobileMenu() {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                if (menuToggle && mobileMenu) {
+                    menuToggle.addEventListener('click', () => {
+                        const isHidden = mobileMenu.classList.contains('hidden');
+
+                        if (isHidden) {
+                            mobileMenu.classList.remove('hidden');
+                            mobileMenu.classList.add('mobile-menu-enter');
+                            menuToggle.classList.add('active');
+                            menuToggle.textContent = '✕';
+                        } else {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('mobile-menu-enter');
+                            menuToggle.classList.remove('active');
+                            menuToggle.textContent = '☰';
+                        }
+                    });
+                }
+            }
+
+            handleVideoPlayback() {
+                const video = document.querySelector('.hero-video');
+                if (video && this.isMobile) {
+                    // Optionally pause video on mobile for performance
+                    // video.pause();
+                }
+            }
+        }
+
+        // Initialize animation manager when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new AnimationManager();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            // Re-check mobile status
+            const isMobile = window.innerWidth < 768;
+            if (isMobile !== this.isMobile) {
+                location.reload(); // Simple way to handle responsive changes
+            }
+        });
+    </script>
+
+</body>
 </html>
