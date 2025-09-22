@@ -105,7 +105,7 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
   </section>
 
   <!-- Benefits Teaser Section -->
-  <section class="bg-blue-100 py-16">
+  <section class="benefits bg-blue-100 py-16">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
         <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">Why Cold Plunging Works for Women</h2>
@@ -328,11 +328,53 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     }
   }
 
+  /* Enhanced Hero Text Styling */
+  .hero-headline {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    letter-spacing: -0.02em;
+  }
+
+  /* Mobile hero section adjustments */
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 100vh;
+      min-height: 600px; /* Ensure minimum height */
+    }
+    
+    .hero-headline {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-subheadline {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    .hero-headline {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    
+    .hero-subheadline {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  }
+
+  /* Enhanced shimmer effect for highlighted text */
   .highlight-text {
-    color: #fbbf24;
+    color: #fbbf24 !important;
     text-shadow: 
       0 2px 4px rgba(0, 0, 0, 0.8),
-      0 0 8px rgba(251, 191, 36, 0.3);
+      0 0 8px rgba(251, 191, 36, 0.4),
+      0 0 16px rgba(251, 191, 36, 0.2);
+    font-weight: 800;
   }
 
   .hero-subheadline {
@@ -391,16 +433,6 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     100% { background-position: 200% 0; }
   }
 
-  /* Enhanced shimmer effect for highlighted text */
-  .highlight-text {
-    color: #fbbf24 !important;
-    text-shadow: 
-      0 2px 4px rgba(0, 0, 0, 0.8),
-      0 0 8px rgba(251, 191, 36, 0.4),
-      0 0 16px rgba(251, 191, 36, 0.2);
-    font-weight: 800;
-  }
-
   /* Color Variables */
   .bg-gold-500 {
     background-color: #F4C430;
@@ -446,43 +478,8 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     color: #9333ea;
   }
 
-  /* Enhanced Hero Text Styling */
-  .hero-headline {
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-    letter-spacing: -0.02em;
-  }
-
-  /* Mobile hero section adjustments */
-  @media (max-width: 768px) {
-    .hero-section {
-      height: 100vh;
-      min-height: 600px; /* Ensure minimum height */
-    }
-    
-    .hero-headline {
-      font-size: 2.5rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-    
-    .hero-subheadline {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      padding: 0 1rem;
-    }
-  }
-
-  /* Extra small screens */
-  @media (max-width: 480px) {
-    .hero-headline {
-      font-size: 2rem;
-      line-height: 1.2;
-    }
-    
-    .hero-subheadline {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
+  .text-green-600 {
+    color: #16a34a;
   }
 
   .text-gray-600 {
@@ -501,15 +498,18 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     background-color: #2D3748;
   }
 
-  /* Responsive Adjustments */
+  /* Alternative: Static image fallback for mobile if video is problematic */
   @media (max-width: 768px) {
-    .hero-headline {
-      font-size: 2.5rem;
-      line-height: 1.1;
-    }
-    
-    .hero-subheadline {
-      font-size: 1.1rem;
+    .hero-video-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #4A90E2 0%, #2B6CB0 100%);
+      opacity: 0; /* Set to 1 if you want to use gradient instead of video on mobile */
+      z-index: 1;
     }
   }
 
