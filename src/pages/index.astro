@@ -19,7 +19,7 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Women's Cold Plunge Benefits",
-      "description": "{pageDescription}",
+      "description": "Discover how cold plunging boosts women's hormonal balance, stress relief, and recovery with our expert guides and top tub recommendations.",
       "url": "https://womenscoldplunge.com/"
     }
   </script>
@@ -73,7 +73,7 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 container mx-auto px-4 text-center text-white">
+    <div class="relative z-10 container mx-auto px-4 text-center text-white hero-content">
       <h1 class="hero-headline font-display font-bold text-4xl md:text-6xl lg:text-7xl max-w-4xl mx-auto leading-tight">
         <span class="headline-word opacity-0">Unlock</span>
         <span class="headline-word highlight-text opacity-0"> Women's</span>
@@ -189,7 +189,7 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
       <div class="flex space-x-4 mb-4 md:mb-0">
         <a href="https://instagram.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Instagram">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.982-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.2-4.354-2.618-6.782-6.98-6.982-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.982-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.2-4.354-2.618-6.782-6.98-6.982-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
           </svg>
         </a>
         <a href="https://pinterest.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Pinterest">
@@ -212,26 +212,6 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
 
     // Animation on page load
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile video positioning fix
-      const video = document.querySelector('.hero-video');
-      if (video && window.innerWidth <= 768) {
-        // Adjust video position based on screen orientation
-        function adjustVideoPosition() {
-          if (window.innerHeight > window.innerWidth) {
-            // Portrait mode - focus on upper portion
-            video.style.objectPosition = 'center 25%';
-          } else {
-            // Landscape mode - center normally
-            video.style.objectPosition = 'center center';
-          }
-        }
-        
-        adjustVideoPosition();
-        window.addEventListener('orientationchange', () => {
-          setTimeout(adjustVideoPosition, 100);
-        });
-      }
-
       // Animate headline words with stagger
       const headlineWords = document.querySelectorAll('.headline-word');
       headlineWords.forEach((word, index) => {
@@ -302,29 +282,10 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     object-position: center center;
   }
 
-  /* Mobile-specific video adjustments */
-  @media (max-width: 768px) {
+  /* ONLY fix portrait video zoom - keep everything else the same */
+  @media (max-width: 768px) and (orientation: portrait) {
     .hero-video {
-      object-fit: cover;
-      object-position: center 30%; /* Focus on upper portion of video on mobile */
-      transform: scale(1.1); /* Slight zoom out effect */
-    }
-  }
-
-  /* For very narrow screens (phones in portrait) */
-  @media (max-width: 480px) {
-    .hero-video {
-      object-position: center 25%;
-      transform: scale(1.05);
-    }
-  }
-
-  /* Landscape mobile phones */
-  @media (max-width: 768px) and (orientation: landscape) {
-    .hero-video {
-      object-fit: cover;
-      object-position: center center;
-      transform: none;
+      transform: scale(0.8);
     }
   }
 
@@ -334,37 +295,9 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
     letter-spacing: -0.02em;
   }
 
-  /* Mobile hero section adjustments */
-  @media (max-width: 768px) {
-    .hero-section {
-      height: 100vh;
-      min-height: 600px; /* Ensure minimum height */
-    }
-    
-    .hero-headline {
-      font-size: 2.5rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-    
-    .hero-subheadline {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      padding: 0 1rem;
-    }
-  }
-
-  /* Extra small screens */
-  @media (max-width: 480px) {
-    .hero-headline {
-      font-size: 2rem;
-      line-height: 1.2;
-    }
-    
-    .hero-subheadline {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
+  .hero-subheadline {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    opacity: 0.95;
   }
 
   /* Enhanced shimmer effect for highlighted text */
@@ -375,11 +308,6 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
       0 0 8px rgba(251, 191, 36, 0.4),
       0 0 16px rgba(251, 191, 36, 0.2);
     font-weight: 800;
-  }
-
-  .hero-subheadline {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    opacity: 0.95;
   }
 
   /* Enhanced Button Styling */
@@ -426,11 +354,6 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
       opacity: 1; 
       transform: translateY(0) scale(1); 
     }
-  }
-  
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
   }
 
   /* Color Variables */
@@ -496,21 +419,6 @@ const pageDescription = "Discover how cold plunging boosts women's hormonal bala
 
   .bg-gray-800 {
     background-color: #2D3748;
-  }
-
-  /* Alternative: Static image fallback for mobile if video is problematic */
-  @media (max-width: 768px) {
-    .hero-video-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #4A90E2 0%, #2B6CB0 100%);
-      opacity: 0; /* Set to 1 if you want to use gradient instead of video on mobile */
-      z-index: 1;
-    }
   }
 
   /* Accessibility - Respect reduced motion preference */
