@@ -1,0 +1,413 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+
+const pageTitle = "Cold Plunge Blog for Women | Tips, Science, and Guides";
+const pageDescription = "Dive into expert tips, science-backed research, and comprehensive guides for cold plunging designed specifically for women's wellness.";
+
+// Get all blog posts
+const allPosts = await getCollection('blog');
+
+// Sort posts by publication date (newest first)
+const sortedPosts = allPosts.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Get unique tags for filtering
+const allTags = [...new Set(allPosts.flatMap(post => post.data.tags))].sort();
+
+// Featured posts
+const featuredPosts = sortedPosts.filter(post => post.data.featured);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content={pageTitle}>
+  <meta name="description" content={pageDescription}>
+  <title>{pageTitle}</title>
+  <!-- Schema.org JSON-LD for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Cold Plunge Blog for Women",
+      "description": "Expert tips, science-backed research, and comprehensive guides for women's cold plunging wellness.",
+      "url": "https://womenscoldplunge.com/blog"
+    }
+  </script>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold font-display text-blue-600 hover:text-blue-700 transition-colors">Women's Cold Plunge</a>
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+      <ul id="nav-menu" class="hidden md:flex space-x-6 text-gray-800">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li><a href="/benefits" class="hover:text-blue-600 transition-colors">Benefits</a></li>
+        <li><a href="/tubs" class="hover:text-blue-600 transition-colors">Best Tubs</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors text-blue-600">Blog</a></li>
+        <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
+      </ul>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <ul class="flex flex-col items-center py-4 space-y-4 text-gray-800">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li><a href="/benefits" class="hover:text-blue-600 transition-colors">Benefits</a></li>
+        <li><a href="/tubs" class="hover:text-blue-600 transition-colors">Best Tubs</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors text-blue-600">Blog</a></li>
+        <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-gray-800 mb-4">
+        Cold Plunge Blog for Women
+      </h1>
+      <p class="text-lg md:text-xl text-blue-600 max-w-2xl mx-auto leading-relaxed">
+        Dive into tips, science, and guides for cold plunging.
+      </p>
+    </div>
+
+    <!-- Featured Posts Section -->
+    {featuredPosts.length > 0 && (
+      <section class="mb-12">
+        <h2 class="font-display font-bold text-2xl text-gray-800 mb-6">Featured Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {featuredPosts.slice(0, 3).map((post) => (
+            <article class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div class="aspect-video">
+                <img 
+                  src={post.data.heroImage || '/api/placeholder/400/225'} 
+                  alt={post.data.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {post.data.tags.slice(0, 2).map((tag) => (
+                    <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 class="font-display font-semibold text-lg text-gray-800 mb-3 line-clamp-2">
+                  <a href={`/blog/${post.slug}`} class="hover:text-blue-600 transition-colors">
+                    {post.data.title}
+                  </a>
+                </h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {post.data.description}
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-gray-500">
+                    {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  <a 
+                    href={`/blog/${post.slug}`}
+                    class="text-blue-600 hover:text-blue-800 font-semibold text-sm transition-colors"
+                    aria-label={`Read ${post.data.title}`}
+                  >
+                    Read More →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Filter Section -->
+    <section class="mb-8">
+      <div class="flex flex-wrap gap-3 justify-center">
+        <button 
+          class="filter-button active px-4 py-2 rounded-full font-medium transition-colors"
+          data-filter="all"
+          aria-label="Show all articles"
+        >
+          All Articles
+        </button>
+        {allTags.map((tag) => (
+          <button 
+            class="filter-button px-4 py-2 rounded-full font-medium transition-colors"
+            data-filter={tag}
+            aria-label={`Filter by ${tag}`}
+          >
+            {tag.charAt(0).toUpperCase() + tag.slice(1).replace('-', ' ')}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- All Posts Grid -->
+    <section>
+      <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {sortedPosts.map((post) => (
+          <article 
+            class="post-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            data-tags={post.data.tags.join(',')}
+          >
+            <div class="aspect-video">
+              <img 
+                src={post.data.heroImage || '/api/placeholder/400/225'} 
+                alt={post.data.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex flex-wrap gap-2 mb-3">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 class="font-display font-semibold text-xl text-gray-800 mb-3">
+                <a href={`/blog/${post.slug}`} class="hover:text-blue-600 transition-colors">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                {post.data.description}
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">
+                  {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </span>
+                <a 
+                  href={`/blog/${post.slug}`}
+                  class="text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+                  aria-label={`Read ${post.data.title}`}
+                >
+                  Read More →
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- No Results Message -->
+      <div id="no-results" class="hidden text-center py-12">
+        <h3 class="font-display font-semibold text-xl text-gray-600 mb-2">No articles found</h3>
+        <p class="text-gray-500">Try selecting a different filter or browse all articles.</p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center py-12 bg-blue-100 rounded-lg mt-16">
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-4">
+        Ready to Start Your Cold Plunging Journey?
+      </h2>
+      <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+        Explore our comprehensive guides and find the perfect cold plunge setup for your wellness goals.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/benefits"
+          class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          aria-label="Learn about cold plunge benefits"
+        >
+          Learn Benefits
+        </a>
+        <a 
+          href="/tubs"
+          class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300"
+          aria-label="Shop cold plunge tubs"
+        >
+          Shop Tubs
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <a href="/disclosure" class="hover:text-blue-400 transition-colors">Affiliate Disclosure</a> | 
+        <a href="/privacy" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+      </div>
+      <div class="flex space-x-4 mb-4 md:mb-0">
+        <a href="https://instagram.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Instagram">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.982-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.2-4.354-2.618-6.782-6.98-6.982-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
+          </svg>
+        </a>
+        <a href="https://pinterest.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Pinterest">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.14.5C5.86.5 1.7 5.29 1.7 11.57c0 4.45 2.72 8.24 6.58 9.76-.09-.81-.17-2.06.03-2.94.18-.79 1.18-5.03 1.18-5.03s-.3-.6-.3-1.49c0-1.39.81-2.43 1.81-2.43.85 0 1.26.64 1.26 1.41 0 .86-.55 2.14-.83 3.33-.24.99.49 1.8 1.46 1.8 1.75 0 3.1-1.84 3.1-4.49 0-2.35-1.69-3.99-4.1-3.99-2.79 0-4.43 2.09-4.43 4.25 0 .84.32 1.74.73 2.23.08.1.09.18.07.28-.07.34-.23 1.06-.27 1.2-.04.15-.14.18-.32.11-1.2-.44-1.95-1.83-1.95-2.95 0-2.4 1.74-4.6 5.02-4.6 2.64 0 4.69 1.88 4.69 4.39 0 2.62-1.65 4.73-3.94 4.73-.77 0-1.49-.4-1.74-.87 0 0-.38 1.46-.47 1.82-.17.67-.5 1.51-.75 2.02.56.17 1.14.26 1.75.26 6.28 0 11.36-5.29 11.36-11.57S18.42.5 12.14.5z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm">© 2025 Women's Cold Plunge Benefits</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-button');
+      const postCards = document.querySelectorAll('.post-card');
+      const noResults = document.getElementById('no-results');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to clicked button
+          button.classList.add('active');
+
+          const filter = button.getAttribute('data-filter');
+          let visibleCount = 0;
+
+          postCards.forEach(card => {
+            const cardTags = card.getAttribute('data-tags').split(',');
+            
+            if (filter === 'all' || cardTags.includes(filter)) {
+              card.style.display = 'block';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // Show/hide no results message
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+
+  .font-display {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Filter buttons */
+  .filter-button {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
+  }
+
+  .filter-button:hover {
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+
+  .filter-button.active {
+    background-color: #4A90E2;
+    color: white;
+    border-color: #4A90E2;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Color Variables */
+  .bg-gold-500 {
+    background-color: #F4C430;
+  }
+
+  .bg-gold-600 {
+    background-color: #D4A017;
+  }
+
+  .text-blue-600 {
+    color: #4A90E2;
+  }
+
+  .text-blue-700 {
+    color: #3182ce;
+  }
+
+  .text-blue-800 {
+    color: #2B6CB0;
+  }
+
+  .bg-blue-100 {
+    background-color: #E6F0FA;
+  }
+
+  .bg-blue-600 {
+    background-color: #4A90E2;
+  }
+
+  .bg-blue-700 {
+    background-color: #3182ce;
+  }
+
+  .text-gray-600 {
+    color: #6b7280;
+  }
+
+  .text-gray-800 {
+    color: #2D3748;
+  }
+
+  .bg-gray-800 {
+    background-color: #2D3748;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  * {
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+</style>

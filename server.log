@@ -1,0 +1,57 @@
+
+> womens-cold-plunge@0.0.1 dev
+> astro dev
+
+09:29:44 [types] Added src/env.d.ts type declarations
+09:29:44 [types] Generated 19ms
+09:29:44 [vite] Re-optimizing dependencies because lockfile has changed
+
+ astro  v4.15.12 ready in 2070 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+09:29:46 watching for file changes...
+09:29:56 [200] / 29ms
+09:29:56 [200] / 30ms
+09:30:01 [200] /benefits 3ms
+09:30:01 [404] /api/placeholder/800/450 1ms
+09:30:01 [404] /api/placeholder/800/450 0ms
+09:30:01 [404] /api/placeholder/800/450 0ms
+09:30:01 [404] /api/placeholder/800/450 0ms
+09:30:07 [200] /benefits/ultimate-guide 3ms
+09:30:07 [404] /api/placeholder/1200/675 1ms
+09:30:07 [404] /api/placeholder/1200/675 0ms
+09:30:16 [200] /tubs 5ms
+09:30:16 [404] /api/placeholder/400/300 0ms
+09:30:16 [404] /api/placeholder/400/300 0ms
+09:30:16 [404] /api/placeholder/400/300 0ms
+09:30:16 [404] /api/placeholder/400/300 0ms
+09:30:16 [404] /api/placeholder/400/300 0ms
+09:30:20 [200] /benefits 2ms
+09:30:20 [404] /api/placeholder/800/450 1ms
+09:30:20 [404] /api/placeholder/800/450 0ms
+09:30:20 [404] /api/placeholder/800/450 0ms
+09:30:20 [404] /api/placeholder/800/450 0ms
+09:30:21 [200] / 2ms
+09:30:23 [200] /tubs 2ms
+09:30:23 [404] /api/placeholder/400/300 0ms
+09:30:23 [404] /api/placeholder/400/300 0ms
+09:30:23 [404] /api/placeholder/400/300 0ms
+09:30:23 [404] /api/placeholder/400/300 0ms
+09:30:23 [404] /api/placeholder/400/300 0ms
+09:30:25 [200] /blog 105ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:25 [404] /api/placeholder/800/400 0ms
+09:30:27 [200] /about 2ms
+09:30:44 [200] /disclosure 4ms
+09:30:51 [200] /privacy 2ms
+09:30:55 [200] / 4ms
+09:31:02 [200] /benefits/hormonal-balance 3ms
+09:31:02 [404] /api/placeholder/1200/675 0ms
+09:31:02 [404] /api/placeholder/1200/675 0ms
