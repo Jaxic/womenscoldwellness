@@ -1,0 +1,503 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: string;
+  tags: string[];
+}
+
+const { title, description, pubDate, heroImage, tags } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content={title}>
+  <meta name="description" content={description}>
+  <title>{title}</title>
+  <!-- Schema.org JSON-LD for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "datePublished": pubDate.toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "Women's Cold Plunge Benefits"
+      }
+    }
+  </script>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold font-display text-blue-600 hover:text-blue-700 transition-colors">Women's Cold Plunge</a>
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+      <ul id="nav-menu" class="hidden md:flex space-x-6 text-gray-800">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li><a href="/benefits" class="hover:text-blue-600 transition-colors">Benefits</a></li>
+        <li><a href="/tubs" class="hover:text-blue-600 transition-colors">Best Tubs</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors text-blue-600">Blog</a></li>
+        <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
+      </ul>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <ul class="flex flex-col items-center py-4 space-y-4 text-gray-800">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li><a href="/benefits" class="hover:text-blue-600 transition-colors">Benefits</a></li>
+        <li><a href="/tubs" class="hover:text-blue-600 transition-colors">Best Tubs</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors text-blue-600">Blog</a></li>
+        <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- Breadcrumb -->
+    <nav class="mb-8">
+      <ol class="flex items-center space-x-2 text-sm text-gray-500">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li>/</li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors">Blog</a></li>
+        <li>/</li>
+        <li class="text-gray-700">{title}</li>
+      </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+          {tags.map((tag) => (
+            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <!-- Title -->
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-gray-800 mb-6 leading-tight">
+        {title}
+      </h1>
+
+      <!-- Meta info -->
+      <div class="flex items-center gap-4 text-gray-600 mb-6 justify-center">
+        <time datetime={pubDate.toISOString()}>
+          {pubDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+        <span>•</span>
+        <span>Women's Cold Plunge Benefits</span>
+      </div>
+
+      <!-- Hero Image placeholder if no image provided -->
+      <img 
+        src={heroImage || "/api/placeholder/1200/675"} 
+        alt={title}
+        class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg mb-6"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Introduction -->
+    <section class="mb-12">
+      <p class="text-lg text-blue-600 leading-relaxed mb-6">
+        {description}
+      </p>
+    </section>
+
+    <!-- Article Content -->
+    <article class="prose prose-lg max-w-none blog-content">
+      <slot />
+    </article>
+
+    <!-- Related Articles Section -->
+    <section class="mb-12 mt-16">
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-8 text-center">
+        Related Articles
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">
+            <a href="/benefits/hormonal-balance" class="text-blue-600 hover:text-blue-800">Cold Plunging and Hormonal Balance</a>
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Discover how cold therapy supports hormonal balance, regulates cortisol, and enhances women's endocrine health.
+          </p>
+          <a href="/benefits/hormonal-balance" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">
+            <a href="/benefits/stress-recovery" class="text-blue-600 hover:text-blue-800">Stress Recovery and Mental Health</a>
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Learn how cold plunging reduces stress, improves mood, and supports mental wellness for women.
+          </p>
+          <a href="/benefits/stress-recovery" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">
+            <a href="/blog/how-to-start-safely" class="text-blue-600 hover:text-blue-800">How to Start Cold Plunging Safely</a>
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Step-by-step safety guide for women beginning their cold plunging journey with protocols and precautions.
+          </p>
+          <a href="/blog/how-to-start-safely" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">
+            <a href="/blog/post-workout-recovery" class="text-blue-600 hover:text-blue-800">Post-Workout Recovery Benefits</a>
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Optimize your post-exercise recovery with strategic cold plunging timing, duration, and techniques.
+          </p>
+          <a href="/blog/post-workout-recovery" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center py-12 bg-blue-100 rounded-lg">
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-4">
+        Ready to Start Your Cold Plunge Journey?
+      </h2>
+      <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+        Find the perfect cold plunge tub to support your wellness goals.
+      </p>
+      <a 
+        href="/tubs"
+        class="inline-block bg-gold-500 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg hover:bg-gold-600 transition-colors duration-300 transform hover:scale-105"
+        aria-label="Shop Recommended Cold Plunge Tubs"
+      >
+        Shop Recommended Tubs
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <a href="/disclosure" class="hover:text-blue-400 transition-colors">Affiliate Disclosure</a> | 
+        <a href="/privacy" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+      </div>
+      <div class="flex space-x-4 mb-4 md:mb-0">
+        <a href="https://instagram.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Instagram">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.982-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.2-4.354-2.618-6.782-6.98-6.982-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.790-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
+          </svg>
+        </a>
+        <a href="https://pinterest.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Pinterest">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.14.5C5.86.5 1.7 5.29 1.7 11.57c0 4.45 2.72 8.24 6.58 9.76-.09-.81-.17-2.06.03-2.94.18-.79 1.18-5.03 1.18-5.03s-.3-.6-.3-1.49c0-1.39.81-2.43 1.81-2.43.85 0 1.26.64 1.26 1.41 0 .86-.55 2.14-.83 3.33-.24.99.49 1.8 1.46 1.8 1.75 0 3.1-1.84 3.1-4.49 0-2.35-1.69-3.99-4.1-3.99-2.79 0-4.43 2.09-4.43 4.25 0 .84.32 1.74.73 2.23.08.1.09.18.07.28-.07.34-.23 1.06-.27 1.2-.04.15-.14.18-.32.11-1.2-.44-1.95-1.83-1.95-2.95 0-2.4 1.74-4.6 5.02-4.6 2.64 0 4.69 1.88 4.69 4.39 0 2.62-1.65 4.73-3.94 4.73-.77 0-1.49-.4-1.74-.87 0 0-.38 1.46-.47 1.82-.17.67-.5 1.51-.75 2.02.56.17 1.14.26 1.75.26 6.28 0 11.36-5.29 11.36-11.57S18.42.5 12.14.5z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm">© 2025 Women's Cold Plunge Benefits</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
+
+<style>
+  @import url('/fonts/fonts.css');
+
+  .font-display {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Enhanced Prose styling for blog content */
+  .blog-content,
+  .prose {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    color: #4a5568;
+  }
+
+
+  .blog-content h1,
+  .prose h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: #2D3748;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #E6F0FA;
+    padding-bottom: 1rem;
+  }
+
+  .prose h1:first-child {
+    margin-top: 0;
+  }
+
+  .blog-content h2,
+  .prose h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.3;
+    color: #2D3748;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .prose h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #4A90E2, #E6F0FA);
+    border-radius: 2px;
+  }
+
+  .blog-content h3,
+  .prose h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #2D3748;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .prose h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: #4A90E2;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .prose p:first-of-type {
+    font-size: 1.25rem;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  /* List styling moved to global.css to avoid scoped CSS issues */
+
+  /* Removed custom pseudo-element styling in favor of standard list markers */
+
+  /* Removed custom counter styling in favor of standard list markers */
+
+  .prose strong {
+    font-weight: 700;
+    color: #2D3748;
+    background: linear-gradient(120deg, #E6F0FA 0%, #E6F0FA 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: 0 80%;
+    padding: 0 0.2em;
+  }
+
+  .prose a {
+    color: #4A90E2;
+    text-decoration: none;
+    background: linear-gradient(120deg, transparent 0%, transparent 95%, #E6F0FA 95%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: all 0.3s ease;
+    padding: 0.1em 0.2em;
+    border-radius: 3px;
+  }
+
+  .prose a:hover {
+    color: #2B6CB0;
+    background: linear-gradient(120deg, #E6F0FA 0%, #E6F0FA 100%);
+    background-size: 100% 100%;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid #4A90E2;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 0.75rem;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .prose blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: #cbd5e0;
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-family: serif;
+  }
+
+  .prose blockquote p {
+    font-style: italic;
+    font-size: 1.125rem;
+    color: #4a5568;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Special styling for numbered lists in blog content */
+  /* Special styling for strong elements and paragraphs within lists moved to global.css */
+
+  /* Code styling */
+  .prose code {
+    background-color: #f1f5f9;
+    color: #4A90E2;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 600;
+  }
+
+  .prose pre {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  /* Table styling */
+  .prose table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .prose th {
+    background-color: #4A90E2;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .prose td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .prose tr:hover td {
+    background-color: #f8fafc;
+  }
+
+  /* Color Variables */
+  .bg-gold-500 {
+    background-color: #F4C430;
+  }
+
+  .bg-gold-600 {
+    background-color: #D4A017;
+  }
+
+  .text-blue-600 {
+    color: #4A90E2;
+  }
+
+  .text-blue-700 {
+    color: #3182ce;
+  }
+
+  .text-blue-800 {
+    color: #2B6CB0;
+  }
+
+  .bg-blue-100 {
+    background-color: #E6F0FA;
+  }
+
+  .bg-blue-600 {
+    background-color: #4A90E2;
+  }
+
+  .bg-blue-700 {
+    background-color: #3182ce;
+  }
+
+  .text-gray-600 {
+    color: #6b7280;
+  }
+
+  .text-gray-700 {
+    color: #374151;
+  }
+
+  .text-gray-800 {
+    color: #2D3748;
+  }
+
+  .bg-gray-800 {
+    background-color: #2D3748;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  * {
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+</style>

@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('./montserrat-600.ttf') format('truetype');
+  src: url('/fonts/montserrat-600.ttf') format('truetype');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('./montserrat-700.ttf') format('truetype');
+  src: url('/fonts/montserrat-700.ttf') format('truetype');
 }
 
 @font-face {
@@ -21,7 +21,7 @@
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('./montserrat-800.ttf') format('truetype');
+  src: url('/fonts/montserrat-800.ttf') format('truetype');
 }
 
 @font-face {
@@ -29,7 +29,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('./opensans-400.ttf') format('truetype');
+  src: url('/fonts/opensans-400.ttf') format('truetype');
 }
 
 @font-face {
@@ -37,7 +37,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('./opensans-500.ttf') format('truetype');
+  src: url('/fonts/opensans-500.ttf') format('truetype');
 }
 
 @font-face {
@@ -45,5 +45,5 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('./opensans-600.ttf') format('truetype');
+  src: url('/fonts/opensans-600.ttf') format('truetype');
 }

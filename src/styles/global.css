@@ -1,1 +1,86 @@
 @import "tailwindcss";
+
+/* Blog content list styling - fixes list formatting issues */
+article.blog-content ul,
+article.prose ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+article.blog-content ol,
+article.prose ol {
+  list-style-type: decimal !important;
+  padding-left: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+article.blog-content li,
+article.prose li {
+  margin-bottom: 0.75rem !important;
+  color: #4a5568 !important;
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+  padding-left: 0.5rem !important;
+}
+
+article.blog-content ol li,
+article.prose ol li {
+  margin-bottom: 2rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Special styling for strong elements in ordered lists */
+article.blog-content ol li strong,
+article.prose ol li strong {
+  display: block !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 1.25rem !important;
+  color: #2D3748 !important;
+  font-weight: 700 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* Better spacing for paragraphs within list items */
+article.blog-content ol li p,
+article.prose ol li p {
+  margin-bottom: 0 !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Hide H1 elements within article content since title is already displayed in layout */
+article.blog-content h1,
+article.prose h1 {
+  display: none !important;
+}
+
+/* Ensure H2 and H3 headers are visible and styled properly */
+article.blog-content h2,
+article.prose h2 {
+  display: block !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 2rem !important;
+  line-height: 1.3 !important;
+  color: #2D3748 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  position: relative !important;
+  padding-left: 1rem !important;
+}
+
+article.blog-content h3,
+article.prose h3 {
+  display: block !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  line-height: 1.4 !important;
+  color: #2D3748 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  padding: 0.5rem 0 !important;
+  border-bottom: 2px solid #f1f5f9 !important;
+}
