@@ -117,6 +117,70 @@
   color: #92400e;
 }
 
+/* Animation Keyframes for Hero Section */
+@keyframes slideInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80% { 
+    opacity: 0; 
+    transform: translateY(-30px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Enhanced Hero Text Styling */
+.hero-headline {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.02em;
+}
+
+.hero-subheadline {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0.95;
+}
+
+/* Enhanced shimmer effect for highlighted text */
+.highlight-text {
+  color: #fbbf24 !important;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(251, 191, 36, 0.4),
+    0 0 16px rgba(251, 191, 36, 0.2);
+  font-weight: 800;
+}
+
+/* Enhanced Button Styling */
+.cta-button-primary {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+
+.cta-button-primary:hover {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+}
+
+.cta-button-secondary:hover {
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+/* Enhanced Cards */
+.benefit-card {
+  transform: translateY(0);
+}
+
 /* Global Transitions */
 * {
   transition-property: color, background-color, border-color, transform, box-shadow;
