@@ -2,7 +2,7 @@
 title: "Post-Workout Recovery with Cold Plunging: Maximize Your Training Results"
 description: "Optimize your post-exercise recovery with strategic cold plunging. Learn timing, duration, and techniques for enhanced performance and reduced soreness."
 pubDate: 2025-01-12T00:00:00.000Z
-heroImage: ""
+heroImage: "/images/women-cold-plunge-post-workout-recovery.webp"
 tags: ["recovery", "fitness", "performance", "post-workout"]
 pillar: "stress-recovery"
 featured: true

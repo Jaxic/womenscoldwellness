@@ -1,7 +1,7 @@
 ---
 title: "The Ultimate Guide to Cold Plunging for Women's Wellness"
 description: "Comprehensive guide to cold plunging specifically designed for women, covering benefits, safety, and getting started."
-heroImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+heroImage: "/images/Woman_practicing_cold_plunging_or_wellness.webp"
 pubDate: 2025-01-15T00:00:00.000Z
 relatedArticles: ["safe-start", "equipment-guide", "cold-vs-sauna", "myths-debunked"]
 featured: true

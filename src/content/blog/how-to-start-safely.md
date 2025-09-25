@@ -2,7 +2,7 @@
 title: "How to Start Cold Plunging Safely: A Beginner's Guide for Women"
 description: "Step-by-step safety guide for women beginning their cold plunging journey, including protocols, precautions, and gradual progression techniques."
 pubDate: 2025-01-15T00:00:00.000Z
-heroImage: ""
+heroImage: "/images/how-to-start-safely.webp"
 tags: ["beginner", "safety", "getting-started"]
 pillar: "ultimate-guide"
 featured: true
