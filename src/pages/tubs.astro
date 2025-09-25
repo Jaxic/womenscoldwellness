@@ -7,88 +7,173 @@ const pageDescription = "Compare top cold plunge tubs tailored for women's welln
 // Tub data - this would normally come from content collections
 const tubs = [
   {
-    name: "Recoverex Cold Plunge 2.0",
-    price: 4000,
-    originalPrice: 4500,
-    image: "/api/placeholder/400/300",
-    link: "https://recoverex.com/products/cold-plunge-2-0",
+    name: "Plunge All-In Cold Tub",
+    price: 4990,
+    originalPrice: 5490,
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://plunge.com/products/plunge-all-in",
     features: [
-      "Advanced temperature control (37-45°F)",
-      "Built-in filtration system", 
-      "Compact design perfect for home use",
-      "Energy-efficient operation"
+      "Plug-and-plunge convenience",
+      "Powerful cooling to 39°F",
+      "Advanced filtration system",
+      "Mobile app control"
     ],
     specs: {
-      dimensions: "6' x 4' x 3'",
-      capacity: "280 gallons",
-      cooling: "Advanced chiller system",
-      filtration: "Multi-stage filtration with UV sanitization"
+      dimensions: "6.5' x 2.8' x 3.3'",
+      capacity: "215 gallons", 
+      cooling: "1HP chiller system",
+      filtration: "20-micron filtration with ozone"
     },
-    womensBenefit: "Precise temperature control ideal for hormonal health support and consistent wellness routines",
+    womensBenefit: "Perfect size for individual practice with smartphone controls for precise temperature management during different cycle phases",
+    rating: 4.9,
+    featured: true
+  },
+  {
+    name: "The Cold Plunge Tub Co. Original",
+    price: 3299,
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://coldplungetub.co/products/original-cold-plunge-tub",
+    features: [
+      "Premium cedar construction",
+      "Natural insulation properties",
+      "Beautiful aesthetic design",
+      "Easy assembly system"
+    ],
+    specs: {
+      dimensions: "5' x 3' x 3'",
+      capacity: "180 gallons",
+      cooling: "Add-on chiller compatible",
+      filtration: "Basic filtration included"
+    },
+    womensBenefit: "Elegant design perfect for home spa environments, natural cedar provides aromatherapy benefits during sessions",
+    rating: 4.4,
+    featured: false
+  },
+  {
+    name: "Wim Hof Method Tub",
+    price: 8999,
+    originalPrice: 9999,
+    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+    link: "https://wimhofmethod.com/ice-bath-tub",
+    features: [
+      "Official Wim Hof branded tub",
+      "Extreme cold capability (32°F)",
+      "Premium build quality",
+      "Breathing technique integration"
+    ],
+    specs: {
+      dimensions: "7' x 4' x 3.5'",
+      capacity: "320 gallons",
+      cooling: "Industrial-grade chiller",
+      filtration: "Multi-stage UV sanitization"
+    },
+    womensBenefit: "Includes guided breathing protocols specifically beneficial for women's stress management and hormonal balance",
     rating: 4.8,
     featured: true
   },
   {
-    name: "Ultimate Party Plunge",
-    price: 2499,
-    image: "/api/placeholder/400/300",
-    link: "https://thecoldlife.com/products/ultimate-party-plunge",
+    name: "Morozko Forge",
+    price: 7800,
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://morozkoforge.com/",
     features: [
-      "Spacious design for multiple users",
-      "Durable construction",
-      "Easy setup and maintenance", 
-      "Affordable entry point"
+      "Endless cold water circulation",
+      "No power required operation",
+      "Sustainable ice-free design",
+      "Medical-grade construction"
     ],
     specs: {
-      dimensions: "8' x 6' x 3'",
+      dimensions: "8' x 4' x 3'",
       capacity: "400 gallons",
-      cooling: "Ice-based cooling system",
-      filtration: "Basic filtration system"
+      cooling: "Thermosiphon technology",
+      filtration: "Continuous circulation system"
     },
-    womensBenefit: "Large capacity perfect for family wellness routines and introducing friends to cold plunging benefits",
-    rating: 4.2,
+    womensBenefit: "Eco-friendly operation perfect for environmentally conscious women, consistent temperature ideal for menstrual cycle tracking",
+    rating: 4.7,
+    featured: true
+  },
+  {
+    name: "Renu Therapy Cold Stoic 2.0",
+    price: 4999,
+    image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://renutherapy.com/collections/cold-therapy",
+    features: [
+      "Therapeutic-grade cooling",
+      "Compact home-friendly size",
+      "Energy-efficient operation",
+      "Medical community endorsed"
+    ],
+    specs: {
+      dimensions: "6' x 3.5' x 3'",
+      capacity: "250 gallons",
+      cooling: "Precision chiller system",
+      filtration: "Hospital-grade filtration"
+    },
+    womensBenefit: "Designed with input from women's health practitioners, optimal size for perimenopause and menopause support",
+    rating: 4.6,
     featured: false
   },
   {
-    name: "Ultimate Human Lite Plunge",
-    price: 3999,
-    image: "/api/placeholder/400/300",
-    link: "https://thecoldlife.com/collections/ultimate-human",
+    name: "Ice Barrel 400",
+    price: 1299,
+    image: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://icebarrel.com/products/ice-barrel-400",
     features: [
-      "Professional-grade cooling system",
-      "Mid-range capacity",
-      "Advanced temperature precision",
-      "Quality construction"
+      "Compact vertical design",
+      "Insulated construction",
+      "Easy drain system",
+      "Space-efficient footprint"
     ],
     specs: {
-      dimensions: "7' x 5' x 3'",
-      capacity: "350 gallons",
-      cooling: "Professional chiller system",
-      filtration: "Enhanced filtration system"
+      dimensions: "31\" diameter x 42\" tall",
+      capacity: "77 gallons",
+      cooling: "Ice-based cooling",
+      filtration: "Manual cleaning"
     },
-    womensBenefit: "Balanced size and features perfect for dedicated women's wellness practice",
+    womensBenefit: "Perfect starter option for women new to cold plunging, fits in small spaces and apartments",
+    rating: 4.3,
+    featured: false
+  },
+  {
+    name: "Cold Plunge Tub XL",
+    price: 5999,
+    image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://coldplungetub.co/products/xl-cold-plunge-tub",
+    features: [
+      "Extra large capacity",
+      "Premium cedar construction",
+      "Chiller-ready design",
+      "Family-friendly size"
+    ],
+    specs: {
+      dimensions: "8' x 4' x 3'",
+      capacity: "400 gallons",
+      cooling: "Chiller system compatible",
+      filtration: "Advanced filtration ready"
+    },
+    womensBenefit: "Spacious design perfect for mothers wanting to share wellness routines with family members",
     rating: 4.6,
     featured: true
   },
   {
-    name: "Ultimate Human Plunge",
-    price: 4749,
-    image: "/api/placeholder/400/300", 
-    link: "https://thecoldlife.com/collections/ultimate-human",
+    name: "RENU Therapy Polar Plunge Pro",
+    price: 8499,
+    image: "https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    link: "https://renutherapy.com/products/polar-plunge-pro",
     features: [
-      "Premium professional system",
-      "Maximum temperature control",
-      "Commercial-grade filtration",
-      "Extended warranty coverage"
+      "Commercial-grade construction",
+      "Advanced temperature control",
+      "Professional filtration",
+      "Medical facility approved"
     ],
     specs: {
-      dimensions: "8' x 6' x 3.5'",
+      dimensions: "8' x 5' x 3.5'",
       capacity: "450 gallons",
-      cooling: "Commercial-grade chiller",
-      filtration: "Commercial filtration with ozone"
+      cooling: "Commercial chiller system",
+      filtration: "Medical-grade multi-stage"
     },
-    womensBenefit: "Top-tier system for serious wellness practitioners seeking maximum benefits and durability",
-    rating: 4.9,
+    womensBenefit: "Professional-quality system for serious wellness practitioners and healthcare professionals",
+    rating: 4.8,
     featured: true
   }
 ];
@@ -382,119 +467,3 @@ const tubs = [
 </body>
 </html>
 
-<style>
-  @import url('/fonts/fonts.css');
-
-  .font-display {
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .font-body {
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  /* Tub cards initial state for animation */
-  .tub-card {
-    opacity: 0;
-    transform: translateY(30px);
-    position: relative;
-  }
-
-  /* Animation keyframes */
-  @keyframes slideInUp {
-    from { 
-      opacity: 0; 
-      transform: translateY(30px); 
-    }
-    to { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-  }
-
-  /* Details content animation */
-  .details-content {
-    transition: all 0.3s ease;
-  }
-
-  /* Color Variables */
-  .bg-gold-500 {
-    background-color: #F4C430;
-  }
-
-  .bg-gold-600 {
-    background-color: #D4A017;
-  }
-
-  .text-gold-500 {
-    color: #F4C430;
-  }
-
-  .border-gold-500 {
-    border-color: #F4C430;
-  }
-
-  .text-blue-600 {
-    color: #4A90E2;
-  }
-
-  .text-blue-700 {
-    color: #3182ce;
-  }
-
-  .text-blue-800 {
-    color: #2B6CB0;
-  }
-
-  .bg-blue-100 {
-    background-color: #E6F0FA;
-  }
-
-  .bg-blue-50 {
-    background-color: #eff6ff;
-  }
-
-  .text-blue-700 {
-    color: #1d4ed8;
-  }
-
-  .text-gray-600 {
-    color: #6b7280;
-  }
-
-  .text-gray-700 {
-    color: #374151;
-  }
-
-  .text-gray-800 {
-    color: #2D3748;
-  }
-
-  .text-gray-900 {
-    color: #1f2937;
-  }
-
-  .bg-gray-800 {
-    background-color: #2D3748;
-  }
-
-  .bg-gray-50 {
-    background-color: #f9fafb;
-  }
-
-  /* Accessibility - Respect reduced motion preference */
-  @media (prefers-reduced-motion: reduce) {
-    .tub-card {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-
-  /* Smooth transitions for all interactive elements */
-  * {
-    transition-property: color, background-color, border-color, transform, box-shadow;
-    transition-duration: 300ms;
-    transition-timing-function: ease;
-  }
-</style>

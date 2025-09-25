@@ -11,6 +11,7 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     pillar: z.string().optional(),
     featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
   }),
 });
 
@@ -24,6 +25,7 @@ const pillars = defineCollection({
     updatedDate: z.date().optional(),
     relatedArticles: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
   }),
 });
 
