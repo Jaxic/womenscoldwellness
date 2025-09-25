@@ -1,5 +1,5 @@
 ---
-title: "5 Reasons: Why Cold Plunging Helps Menstrual Health!"
+title: "Why Cold Plunging Helps Menstrual Health!"
 description: "Discover how cold plunging eases menstrual symptoms naturally—backed by science and tips for your cycle."
 pubDate: 2025-09-23T00:00:00.000Z
 heroImage: "/images/cold-plunge-menstrual-cycle-benefits.webp"
