@@ -7,7 +7,6 @@ heroImage: "/images/ice-bath-pcos-benefits.webp"
 tags: ["PCOS", "hormonal health", "insulin sensitivity", "inflammation"]
 category: "hormonal-health"
 featured: true
-draft: true
 ---
 
 # Ice Bath Benefits for PCOS: Hormone Balance Guide

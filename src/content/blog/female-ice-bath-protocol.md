@@ -7,7 +7,6 @@ heroImage: "/images/female-ice-bath-protocol.webp"
 tags: ["ice bath protocol", "beginner guide", "safety", "women's health"]
 category: "recovery"
 featured: true
-draft: true
 ---
 
 # Female Ice Bath Protocol: Complete Beginner's Guide

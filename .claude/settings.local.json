@@ -7,7 +7,11 @@
       "Bash(pkill:*)",
       "Bash(timeout 30s npm run dev)",
       "Bash(true)",
-      "Bash(timeout 10s npm run dev:*)"
+      "Bash(timeout 10s npm run dev:*)",
+      "Bash(rg:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(done)"
     ],
     "deny": []
   }

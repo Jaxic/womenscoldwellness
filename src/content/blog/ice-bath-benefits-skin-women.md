@@ -7,7 +7,6 @@ heroImage: "/images/ice-bath-skin-benefits-women.webp"
 tags: ["skin health", "anti-aging", "collagen", "beauty", "skincare"]
 category: "recovery"
 featured: true
-draft: false
 ---
 
 # Ice Bath Benefits for Women's Skin: Anti-Aging Guide

@@ -7,7 +7,6 @@ heroImage: "/images/womens-cold-plunge-temperature.webp"
 tags: ["temperature guide", "cold plunge settings", "safety", "beginner tips"]
 category: "recovery"
 featured: true
-draft: false
 ---
 
 # Women's Cold Plunge Temperature Guide: Optimal Settings

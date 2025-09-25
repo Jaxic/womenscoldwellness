@@ -7,7 +7,6 @@ heroImage: "/images/cold-plunge-perimenopause.webp"
 tags: ["perimenopause", "hormone therapy", "hot flashes", "natural relief"]
 category: "life-stages"
 featured: true
-draft: true
 ---
 
 # Cold Plunge Benefits for Perimenopause: Natural Relief

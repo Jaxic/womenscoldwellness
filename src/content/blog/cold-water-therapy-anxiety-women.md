@@ -7,7 +7,6 @@ heroImage: "/images/cold-water-therapy-anxiety-women.webp"
 tags: ["anxiety relief", "mental health", "cold therapy", "stress management"]
 category: "mental-health"
 featured: true
-draft: false
 ---
 
 # Cold Water Therapy for Anxiety in Women: Natural Relief
