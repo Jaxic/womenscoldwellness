@@ -271,3 +271,21 @@ article.prose h3 {
   padding: 0.5rem 0 !important;
   border-bottom: 2px solid #f1f5f9 !important;
 }
+
+/* Blog Filter Button Styling */
+.filter-button {
+  background-color: #f9fafb;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.filter-button:hover {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.filter-button.active {
+  background-color: #4A90E2;
+  color: white;
+  border-color: #4A90E2;
+}
