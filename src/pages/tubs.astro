@@ -1,182 +1,11 @@
 ---
 import '../styles/global.css';
 
-const pageTitle = "Best Cold Plunge Tubs for Women | Wellness Comparison";
-const pageDescription = "Compare top cold plunge tubs tailored for women's wellness needs. Find the perfect tub for hormonal balance, stress relief, and recovery.";
+// Updated page title and description for the "Coming Soon" status
+const pageTitle = "Tubs Coming Soon | Women's Cold Plunge";
+const pageDescription = "Our curated list of the best cold plunge tubs is coming soon. Stay tuned for our top recommendations for women's wellness.";
 
-// Tub data - this would normally come from content collections
-const tubs = [
-  {
-    name: "Plunge All-In Cold Tub",
-    price: 4990,
-    originalPrice: 5490,
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://plunge.com/products/plunge-all-in",
-    features: [
-      "Plug-and-plunge convenience",
-      "Powerful cooling to 39°F",
-      "Advanced filtration system",
-      "Mobile app control"
-    ],
-    specs: {
-      dimensions: "6.5' x 2.8' x 3.3'",
-      capacity: "215 gallons", 
-      cooling: "1HP chiller system",
-      filtration: "20-micron filtration with ozone"
-    },
-    womensBenefit: "Perfect size for individual practice with smartphone controls for precise temperature management during different cycle phases",
-    rating: 4.9,
-    featured: true
-  },
-  {
-    name: "The Cold Plunge Tub Co. Original",
-    price: 3299,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://coldplungetub.co/products/original-cold-plunge-tub",
-    features: [
-      "Premium cedar construction",
-      "Natural insulation properties",
-      "Beautiful aesthetic design",
-      "Easy assembly system"
-    ],
-    specs: {
-      dimensions: "5' x 3' x 3'",
-      capacity: "180 gallons",
-      cooling: "Add-on chiller compatible",
-      filtration: "Basic filtration included"
-    },
-    womensBenefit: "Elegant design perfect for home spa environments, natural cedar provides aromatherapy benefits during sessions",
-    rating: 4.4,
-    featured: false
-  },
-  {
-    name: "Wim Hof Method Tub",
-    price: 8999,
-    originalPrice: 9999,
-    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    link: "https://wimhofmethod.com/ice-bath-tub",
-    features: [
-      "Official Wim Hof branded tub",
-      "Extreme cold capability (32°F)",
-      "Premium build quality",
-      "Breathing technique integration"
-    ],
-    specs: {
-      dimensions: "7' x 4' x 3.5'",
-      capacity: "320 gallons",
-      cooling: "Industrial-grade chiller",
-      filtration: "Multi-stage UV sanitization"
-    },
-    womensBenefit: "Includes guided breathing protocols specifically beneficial for women's stress management and hormonal balance",
-    rating: 4.8,
-    featured: true
-  },
-  {
-    name: "Morozko Forge",
-    price: 7800,
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://morozkoforge.com/",
-    features: [
-      "Endless cold water circulation",
-      "No power required operation",
-      "Sustainable ice-free design",
-      "Medical-grade construction"
-    ],
-    specs: {
-      dimensions: "8' x 4' x 3'",
-      capacity: "400 gallons",
-      cooling: "Thermosiphon technology",
-      filtration: "Continuous circulation system"
-    },
-    womensBenefit: "Eco-friendly operation perfect for environmentally conscious women, consistent temperature ideal for menstrual cycle tracking",
-    rating: 4.7,
-    featured: true
-  },
-  {
-    name: "Renu Therapy Cold Stoic 2.0",
-    price: 4999,
-    image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://renutherapy.com/collections/cold-therapy",
-    features: [
-      "Therapeutic-grade cooling",
-      "Compact home-friendly size",
-      "Energy-efficient operation",
-      "Medical community endorsed"
-    ],
-    specs: {
-      dimensions: "6' x 3.5' x 3'",
-      capacity: "250 gallons",
-      cooling: "Precision chiller system",
-      filtration: "Hospital-grade filtration"
-    },
-    womensBenefit: "Designed with input from women's health practitioners, optimal size for perimenopause and menopause support",
-    rating: 4.6,
-    featured: false
-  },
-  {
-    name: "Ice Barrel 400",
-    price: 1299,
-    image: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://icebarrel.com/products/ice-barrel-400",
-    features: [
-      "Compact vertical design",
-      "Insulated construction",
-      "Easy drain system",
-      "Space-efficient footprint"
-    ],
-    specs: {
-      dimensions: "31\" diameter x 42\" tall",
-      capacity: "77 gallons",
-      cooling: "Ice-based cooling",
-      filtration: "Manual cleaning"
-    },
-    womensBenefit: "Perfect starter option for women new to cold plunging, fits in small spaces and apartments",
-    rating: 4.3,
-    featured: false
-  },
-  {
-    name: "Cold Plunge Tub XL",
-    price: 5999,
-    image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://coldplungetub.co/products/xl-cold-plunge-tub",
-    features: [
-      "Extra large capacity",
-      "Premium cedar construction",
-      "Chiller-ready design",
-      "Family-friendly size"
-    ],
-    specs: {
-      dimensions: "8' x 4' x 3'",
-      capacity: "400 gallons",
-      cooling: "Chiller system compatible",
-      filtration: "Advanced filtration ready"
-    },
-    womensBenefit: "Spacious design perfect for mothers wanting to share wellness routines with family members",
-    rating: 4.6,
-    featured: true
-  },
-  {
-    name: "RENU Therapy Polar Plunge Pro",
-    price: 8499,
-    image: "https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "https://renutherapy.com/products/polar-plunge-pro",
-    features: [
-      "Commercial-grade construction",
-      "Advanced temperature control",
-      "Professional filtration",
-      "Medical facility approved"
-    ],
-    specs: {
-      dimensions: "8' x 5' x 3.5'",
-      capacity: "450 gallons",
-      cooling: "Commercial chiller system",
-      filtration: "Medical-grade multi-stage"
-    },
-    womensBenefit: "Professional-quality system for serious wellness practitioners and healthcare professionals",
-    rating: 4.8,
-    featured: true
-  }
-];
+// The 'tubs' constant has been removed as it's no longer needed.
 ---
 
 <!DOCTYPE html>
@@ -187,33 +16,19 @@ const tubs = [
   <meta name="title" content={pageTitle}>
   <meta name="description" content={pageDescription}>
   <title>{pageTitle}</title>
-  <!-- Schema.org JSON-LD for SEO -->
+  <!-- Schema.org JSON-LD (optional, can be simplified or removed) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Best Cold Plunge Tubs for Women",
-      "description": "Compare top cold plunge tubs tailored for women's wellness needs.",
-      "url": "https://womenscoldplunge.com/tubs",
-      "numberOfItems": 4,
-      "itemListElement": [
-        {
-          "@type": "Product",
-          "position": 1,
-          "name": "Recoverex Cold Plunge 2.0",
-          "description": "Precise temperature control ideal for hormonal health support",
-          "offers": {
-            "@type": "Offer",
-            "price": "4000",
-            "priceCurrency": "USD"
-          }
-        }
-      ]
+      "@type": "WebPage",
+      "name": "Tubs Coming Soon",
+      "description": "Our selection of cold plunge tubs will be available soon.",
+      "url": "https://womenscoldplunge.com/tubs"
     }
   </script>
 </head>
 <body class="font-sans text-gray-800 bg-white">
-  <!-- Sticky Navigation -->
+  <!-- Sticky Navigation (Unchanged) -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="/" class="text-2xl font-bold font-display text-blue-600 hover:text-blue-700 transition-colors">Women's Cold Plunge</a>
@@ -230,7 +45,7 @@ const tubs = [
         <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
       </ul>
     </nav>
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu (Unchanged) -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
       <ul class="flex flex-col items-center py-4 space-y-4 text-gray-800">
         <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
@@ -242,152 +57,18 @@ const tubs = [
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12">
-    <!-- Page Header -->
-    <div class="text-center mb-12">
-      <h1 class="font-display font-bold text-3xl md:text-5xl text-gray-800 mb-4 max-w-4xl mx-auto">
-        Best Cold Plunge Tubs for Women
-      </h1>
-      <p class="text-lg md:text-xl text-blue-600 max-w-2xl mx-auto leading-relaxed">
-        Compare top tubs for wellness, tailored for women.
-      </p>
+  <!-- Main Content - REPLACED -->
+  <main class="container mx-auto px-4 py-12 flex items-center justify-center" style="min-height: calc(100vh - 250px);">
+    <!-- Centered "Coming Soon" Message -->
+    <div class="text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-gray-800 font-display">
+            Coming Soon
+        </h1>
     </div>
-
-    <!-- Product Cards -->
-    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-      {tubs.map((tub, index) => (
-        <div class="tub-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300" 
-             style={`animation-delay: ${index * 200}ms`}>
-          
-          {/* Featured Badge */}
-          {tub.featured && (
-            <div class="absolute top-4 left-4 bg-gold-500 text-gray-900 font-bold px-3 py-1 rounded-full text-sm z-10">
-              Featured
-            </div>
-          )}
-          
-          {/* Product Image */}
-          <div class="relative">
-            <img 
-              src={tub.image} 
-              alt={`${tub.name} cold plunge tub`}
-              class="w-full h-48 object-cover"
-              loading="lazy"
-            />
-            {/* Rating Badge */}
-            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 flex items-center gap-1">
-              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-              </svg>
-              <span class="text-sm font-semibold text-gray-800">{tub.rating}</span>
-            </div>
-          </div>
-
-          <div class="p-6">
-            {/* Product Name & Price */}
-            <div class="mb-4">
-              <h3 class="font-display font-bold text-xl text-gray-800 mb-2">
-                {tub.name}
-              </h3>
-              <div class="flex items-center gap-2">
-                <span class="text-2xl font-bold text-gray-900">
-                  ${tub.price.toLocaleString()}
-                </span>
-                {tub.originalPrice && (
-                  <span class="text-lg text-gray-500 line-through">
-                    ${tub.originalPrice.toLocaleString()}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {/* Key Features */}
-            <div class="mb-4">
-              <ul class="space-y-2">
-                {tub.features.slice(0, 4).map((feature) => (
-                  <li class="flex items-start gap-2 text-sm text-gray-600">
-                    <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Women's Benefit */}
-            <div class="mb-6 p-3 bg-blue-50 rounded-lg">
-              <p class="text-sm text-blue-700 font-medium">
-                <span class="font-semibold">For Women:</span> {tub.womensBenefit}
-              </p>
-            </div>
-
-            {/* More Details Toggle */}
-            <button 
-              class="details-toggle text-blue-600 hover:text-blue-800 font-semibold text-sm mb-4 transition-colors"
-              onclick={`toggleDetails('details-${index}')`}
-              aria-label={`Show more details for ${tub.name}`}
-            >
-              More Details ↓
-            </button>
-
-            {/* Collapsible Details */}
-            <div id={`details-${index}`} class="details-content hidden mb-6">
-              <div class="grid grid-cols-2 gap-2 text-sm">
-                <div>
-                  <span class="font-semibold text-gray-700">Size:</span>
-                  <p class="text-gray-600">{tub.specs.dimensions}</p>
-                </div>
-                <div>
-                  <span class="font-semibold text-gray-700">Capacity:</span>
-                  <p class="text-gray-600">{tub.specs.capacity}</p>
-                </div>
-                <div>
-                  <span class="font-semibold text-gray-700">Cooling:</span>
-                  <p class="text-gray-600">{tub.specs.cooling}</p>
-                </div>
-                <div>
-                  <span class="font-semibold text-gray-700">Filtration:</span>
-                  <p class="text-gray-600">{tub.specs.filtration}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <a 
-              href={tub.link}
-              class="inline-block w-full bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg text-center hover:bg-gold-600 transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Check price for ${tub.name}`}
-            >
-              Check Price
-            </a>
-          </div>
-        </div>
-      ))}
-    </section>
-
-    {/* Comparison Note */}
-    <section class="text-center py-8 bg-gray-50 rounded-lg">
-      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4">
-        Need Help Choosing?
-      </h2>
-      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-        Each tub offers unique benefits for women's wellness. Consider your space, budget, and wellness goals when making your choice.
-      </p>
-      <a 
-        href="/benefits"
-        class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-        aria-label="Learn more about cold plunge benefits"
-      >
-        Learn About Benefits
-      </a>
-    </section>
   </main>
 
-  <!-- Footer -->
+
+  <!-- Footer (Unchanged) -->
   <footer class="bg-gray-800 text-white py-12">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
       <div class="mb-4 md:mb-0">
@@ -411,59 +92,14 @@ const tubs = [
   </footer>
 
   <script>
-    // Hamburger menu toggle
+    // Hamburger menu toggle (Unchanged)
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Toggle details function
-    function toggleDetails(detailsId) {
-      const details = document.getElementById(detailsId);
-      const button = details.previousElementSibling;
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        button.innerHTML = 'Less Details ↑';
-      } else {
-        details.classList.add('hidden');
-        button.innerHTML = 'More Details ↓';
-      }
-    }
-
-    // Make toggleDetails globally available
-    window.toggleDetails = toggleDetails;
-
-    // Intersection Observer for tub cards animation
-    document.addEventListener('DOMContentLoaded', function() {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -20px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cards = document.querySelectorAll('.tub-card');
-            cards.forEach((card, cardIndex) => {
-              setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.animation = 'slideInUp 0.8s ease-out forwards';
-              }, cardIndex * 200);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Observe tub cards section
-      const cardsSection = document.querySelector('.grid');
-      if (cardsSection) {
-        observer.observe(cardsSection);
-      }
-    });
+    // The other scripts for details toggle and animations are no longer needed for this page.
   </script>
 </body>
 </html>
-
