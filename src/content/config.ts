@@ -9,25 +9,12 @@ const blog = defineCollection({
     updatedDate: z.date().optional(),
     heroImage: z.string().optional(),
     tags: z.array(z.string()).default([]),
-    pillar: z.string().optional(),
+    benefitsPage: z.string().optional(),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
   }),
 });
 
-const pillars = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    heroImage: z.string(),
-    pubDate: z.date(),
-    updatedDate: z.date().optional(),
-    relatedArticles: z.array(z.string()).default([]),
-    featured: z.boolean().default(false),
-    draft: z.boolean().default(false),
-  }),
-});
 
 const tubs = defineCollection({
   type: 'content',
@@ -64,7 +51,6 @@ const pages = defineCollection({
 
 export const collections = {
   'blog': blog,
-  'pillars': pillars,
   'tubs': tubs,
   'pages': pages,
 };
