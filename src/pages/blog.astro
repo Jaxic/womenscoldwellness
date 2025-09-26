@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 const pageTitle = "Cold Plunge Blog for Women | Tips, Science, and Guides";
 const pageDescription = "Dive into expert tips, science-backed research, and comprehensive guides for cold plunging designed specifically for women's wellness.";
@@ -326,6 +327,7 @@ const featuredPosts = sortedPosts.filter(post => post.data.featured);
       });
     });
   </script>
+  <Analytics />
 </body>
 </html>
 

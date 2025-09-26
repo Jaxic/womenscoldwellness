@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 const pageTitle = "Privacy Policy | Women's Cold Plunge Benefits";
 const pageDescription = "Our privacy policy explains how we collect, use, and protect your personal information when you visit our website.";
@@ -356,6 +357,7 @@ const pageDescription = "Our privacy policy explains how we collect, use, and pr
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+  <Analytics />
 </body>
 </html>
 

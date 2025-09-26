@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 // Updated page title and description for the "Coming Soon" status
 const pageTitle = "Tubs Coming Soon | Women's Cold Plunge";
@@ -101,5 +102,6 @@ const pageDescription = "Our curated list of the best cold plunge tubs is coming
 
     // The other scripts for details toggle and animations are no longer needed for this page.
   </script>
+  <Analytics />
 </body>
 </html>

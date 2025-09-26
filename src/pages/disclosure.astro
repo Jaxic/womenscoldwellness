@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 const pageTitle = "Affiliate Disclosure | Women's Cold Plunge Benefits";
 const pageDescription = "Transparency about our affiliate relationships and how we earn commissions from product recommendations.";
@@ -257,6 +258,7 @@ const pageDescription = "Transparency about our affiliate relationships and how 
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+  <Analytics />
 </body>
 </html>
 

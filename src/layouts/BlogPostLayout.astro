@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 export interface Props {
   title: string;
@@ -233,6 +234,7 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+  <Analytics />
 </body>
 </html>
 

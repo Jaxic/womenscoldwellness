@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 const pageTitle = "About Us | Women's Cold Plunge Benefits";
 const pageDescription = "Learn about our mission to empower women through evidence-based cold plunging education and wellness guidance.";
@@ -244,6 +245,7 @@ const pageDescription = "Learn about our mission to empower women through eviden
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+  <Analytics />
 </body>
 </html>
 
