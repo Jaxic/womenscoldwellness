@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics Test Page</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LYL708DKYY', {
+            debug_mode: true
+        });
+        
+        // Test event after page loads
+        window.addEventListener('load', function() {
+            console.log('Google Analytics Test Page Loaded');
+            console.log('dataLayer:', window.dataLayer);
+            
+            // Send a test event
+            gtag('event', 'test_event', {
+                'event_category': 'test',
+                'event_label': 'analytics_verification'
+            });
+            
+            console.log('Test event sent to Google Analytics');
+        });
+    </script>
+</head>
+<body>
+    <h1>Google Analytics Test Page</h1>
+    <p>Measurement ID: G-LYL708DKYY</p>
+    <p>Open browser developer tools and check:</p>
+    <ol>
+        <li>Console for debug messages</li>
+        <li>Network tab for gtag requests</li>
+        <li>Application tab > Cookies for GA cookies</li>
+    </ol>
+    
+    <button onclick="testEvent()">Send Test Event</button>
+    
+    <script>
+        function testEvent() {
+            gtag('event', 'button_click', {
+                'event_category': 'engagement',
+                'event_label': 'test_button'
+            });
+            console.log('Button click event sent');
+        }
+    </script>
+</body>
+</html>

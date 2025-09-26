@@ -553,6 +553,7 @@ const ogImage = '/images/og-homepage.webp';
       // Animate subheadline
       setTimeout(() => {
         const subheadline = document.querySelector('.hero-subheadline');
+        subheadline.classList.remove('opacity-0');
         subheadline.style.animation = 'slideInUp 1s ease-out forwards';
       }, 2200);
 
@@ -703,7 +704,6 @@ const ogImage = '/images/og-homepage.webp';
 
     .hero-subheadline {
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-      opacity: 0.95;
     }
 
     /* Enhanced shimmer effect for highlighted text */
