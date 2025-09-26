@@ -11,6 +11,10 @@ export interface Props {
 }
 
 const { title, description, pubDate, heroImage, tags } = Astro.props;
+
+// Generate canonical URL and Open Graph image
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://womenscoldplunge.com');
+const ogImage = heroImage || '/images/og-default.webp';
 ---
 
 <!DOCTYPE html>
@@ -18,9 +22,33 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content={title}>
   <meta name="description" content={description}>
   <title>{title}</title>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Women's Cold Plunge Benefits" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content={pubDate.toISOString()} />
+  <meta property="article:author" content="Women's Cold Plunge Benefits" />
+  <meta property="article:section" content="Health & Wellness" />
+  {tags.map((tag) => <meta property="article:tag" content={tag} />)}
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(ogImage, canonicalURL)} />
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="author" content="Women's Cold Plunge Benefits" />
   <!-- Schema.org JSON-LD for SEO -->
   <script type="application/ld+json">
     {
