@@ -642,6 +642,121 @@ const ogImage = '/images/og-homepage.webp';
 
     });
   </script>
+
+  <style>
+    @import url('/fonts/fonts.css');
+
+    .font-display {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .font-body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    /* Hero Video Styling */
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    /* Mobile portrait - focus on the woman in the cold plunge area */
+    @media (max-width: 768px) and (orientation: portrait) {
+      .hero-video {
+        object-fit: cover;
+        object-position: 30% center;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Mobile poster image positioning to show the woman */
+    @media (max-width: 768px) {
+      .hero-video[poster] {
+        object-position: 30% center;
+      }
+    }
+
+    /* Mobile landscape - keep normal view */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .hero-video {
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+
+    /* Enhanced Hero Text Styling */
+    .hero-headline {
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subheadline {
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      opacity: 0.95;
+    }
+
+    /* Enhanced shimmer effect for highlighted text */
+    .highlight-text {
+      color: #fbbf24 !important;
+      text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(251, 191, 36, 0.4),
+        0 0 16px rgba(251, 191, 36, 0.2);
+      font-weight: 800;
+    }
+
+    /* Enhanced Button Styling */
+    .cta-button-primary {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+    }
+
+    .cta-button-secondary {
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Animation Keyframes */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Color Definitions */
+    .text-gold-500 { color: #fbbf24; }
+    .bg-gold-500 { background-color: #fbbf24; }
+    .bg-gold-600 { background-color: #f59e0b; }
+    .border-gold-500 { border-color: #fbbf24; }
+    .hover\:bg-gold-500:hover { background-color: #fbbf24; }
+    .hover\:bg-gold-600:hover { background-color: #f59e0b; }
+  </style>
+
   <Analytics />
 </body>
 </html>
