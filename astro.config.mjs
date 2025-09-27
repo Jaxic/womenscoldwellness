@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://womenscoldplunge.com',
+  site: 'https://www.womenscoldwellness.com',
   integrations: [
     sitemap({
       changefreq: 'weekly',
