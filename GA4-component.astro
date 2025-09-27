@@ -1,0 +1,23 @@
+---
+// GA4 Component - Alternative Implementation
+export interface Props {
+  measurementId?: string;
+}
+
+const { measurementId = 'G-LYL708DKYY' } = Astro.props;
+---
+
+<!-- Google Analytics 4 Implementation -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+<script is:inline define:vars={{ measurementId }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', measurementId, {
+    page_title: document.title,
+    page_location: window.location.href
+  });
+  
+  // Debug logging
+  console.log('GA4 Loaded:', measurementId);
+</script>

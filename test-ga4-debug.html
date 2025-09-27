@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA4 Debug Test - G-LYL708DKYY</title>
+    
+    <!-- Google tag (gtag.js) with DEBUG -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        // Enable debug mode
+        gtag('config', 'G-LYL708DKYY', {
+            debug_mode: true,
+            send_page_view: true
+        });
+        
+        // Log to console for debugging
+        console.log('GA4 Debug: Measurement ID G-LYL708DKYY loaded');
+        console.log('GA4 Debug: dataLayer:', window.dataLayer);
+        
+        // Test event after 2 seconds
+        setTimeout(() => {
+            gtag('event', 'test_page_load', {
+                'event_category': 'debug',
+                'event_label': 'manual_test',
+                'value': 1
+            });
+            console.log('GA4 Debug: Test event sent');
+        }, 2000);
+    </script>
+</head>
+<body>
+    <h1>GA4 Debug Test Page</h1>
+    <p><strong>Measurement ID:</strong> G-LYL708DKYY</p>
+    
+    <h2>Debugging Steps:</h2>
+    <ol>
+        <li>Open browser Developer Tools (F12)</li>
+        <li>Go to <strong>Console</strong> tab - look for GA4 debug messages</li>
+        <li>Go to <strong>Network</strong> tab - look for requests to:
+            <ul>
+                <li>googletagmanager.com/gtag/js?id=G-LYL708DKYY</li>
+                <li>google-analytics.com/g/collect</li>
+                <li>analytics.google.com/analytics/web/</li>
+            </ul>
+        </li>
+        <li>Go to <strong>Application</strong> tab > Cookies - look for _ga and _gid cookies</li>
+    </ol>
+    
+    <h2>What to Check:</h2>
+    <ul>
+        <li><strong>Is G-LYL708DKYY the correct Measurement ID?</strong></li>
+        <li><strong>Is this a valid GA4 property (not Universal Analytics)?</strong></li>
+        <li><strong>Is the property configured correctly in GA4?</strong></li>
+        <li><strong>Are you checking the right view in GA4?</strong></li>
+    </ul>
+    
+    <button onclick="sendTestEvent()" style="padding: 10px; font-size: 16px; margin: 20px 0;">
+        Send Manual Test Event
+    </button>
+    
+    <div id="debug-info" style="background: #f0f0f0; padding: 15px; margin: 20px 0; font-family: monospace;">
+        <strong>Debug Info:</strong><br>
+        <span id="debug-text">Loading...</span>
+    </div>
+    
+    <script>
+        function sendTestEvent() {
+            gtag('event', 'button_click', {
+                'event_category': 'engagement',
+                'event_label': 'manual_button_test',
+                'value': 1
+            });
+            console.log('Manual test event sent via button click');
+            document.getElementById('debug-text').innerHTML += '<br>Manual test event sent at ' + new Date().toLocaleTimeString();
+        }
+        
+        // Display debug info
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                let debugInfo = 'Page loaded at: ' + new Date().toLocaleTimeString() + '<br>';
+                debugInfo += 'dataLayer length: ' + (window.dataLayer ? window.dataLayer.length : 'undefined') + '<br>';
+                debugInfo += 'gtag function: ' + (typeof gtag !== 'undefined' ? 'defined' : 'undefined') + '<br>';
+                debugInfo += 'User agent: ' + navigator.userAgent.substring(0, 50) + '...<br>';
+                document.getElementById('debug-text').innerHTML = debugInfo;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

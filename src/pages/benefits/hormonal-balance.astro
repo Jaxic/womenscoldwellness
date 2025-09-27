@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import Analytics from '@vercel/analytics/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Cold Plunging and Hormonal Balance for Women";
 const pageDescription = "Discover how cold plunging supports hormonal balance, regulates cortisol, and enhances women's endocrine health naturally.";
@@ -10,43 +10,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://womensco
 const ogImage = '/images/og-hormonal-balance.webp';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={pageDescription}>
-  <title>{pageTitle}</title>
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Women's Cold Plunge Benefits" />
-  <meta property="og:locale" content="en_US" />
-  
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={new URL(ogImage, canonicalURL)} />
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="author" content="Women's Cold Plunge Benefits" />
-  
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LYL708DKYY');
-  </script>
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+  canonicalURL={canonicalURL.toString()}
+  ogImage={ogImage}
+  ogType="article"
+>
+  <Fragment slot="head">
   <!-- Schema.org JSON-LD for SEO -->
   <script type="application/ld+json">
     {
@@ -109,8 +80,13 @@ const ogImage = '/images/og-hormonal-balance.webp';
         }
       ]
     }
-  </script>
-</head>
+    </script>
+    <style>
+      @import url('/fonts/fonts.css');
+      .font-display { font-family: 'Montserrat', sans-serif; }
+      .font-body { font-family: 'Open Sans', sans-serif; }
+    </style>
+  </Fragment>
 <body class="font-sans text-gray-800 bg-white">
   <!-- Sticky Navigation -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
@@ -495,7 +471,5 @@ const ogImage = '/images/og-hormonal-balance.webp';
       mobileMenu.classList.toggle('hidden');
     });
   </script>
-  <Analytics />
-</body>
-</html>
+</BaseLayout>
 

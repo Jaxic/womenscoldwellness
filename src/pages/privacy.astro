@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import Analytics from '@vercel/analytics/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Privacy Policy | Women's Cold Plunge Benefits";
 const pageDescription = "Our privacy policy explains how we collect, use, and protect your personal information when you visit our website.";
@@ -10,52 +10,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://womensco
 const ogImage = '/images/og-default.webp';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={pageDescription}>
-  <meta name="robots" content="noindex, nofollow">
-  <title>{pageTitle}</title>
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Women's Cold Plunge Benefits" />
-  <meta property="og:locale" content="en_US" />
-  
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={new URL(ogImage, canonicalURL)} />
-  
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LYL708DKYY');
-  </script>
-  <!-- Schema.org JSON-LD for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Privacy Policy",
-      "description": "Our privacy policy explains how we collect, use, and protect your personal information when you visit our website.",
-      "url": "https://womenscoldplunge.com/privacy"
-    }
-  </script>
-</head>
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+  canonicalURL={canonicalURL.toString()}
+  ogImage={ogImage}
+  ogType="website"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Schema.org JSON-LD for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "description": "Our privacy policy explains how we collect, use, and protect your personal information when you visit our website.",
+        "url": "https://womenscoldplunge.com/privacy"
+      }
+    </script>
+    <style>
+      @import url('/fonts/fonts.css');
+      .font-display { font-family: 'Montserrat', sans-serif; }
+      .font-body { font-family: 'Open Sans', sans-serif; }
+    </style>
+  </Fragment>
 <body class="font-sans text-gray-800 bg-white">
   <!-- Sticky Navigation -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
@@ -388,7 +367,5 @@ const ogImage = '/images/og-default.webp';
       mobileMenu.classList.toggle('hidden');
     });
   </script>
-  <Analytics />
-</body>
-</html>
+</BaseLayout>
 

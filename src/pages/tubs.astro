@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import Analytics from '@vercel/analytics/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Updated page title and description for the "Coming Soon" status
 const pageTitle = "Tubs Coming Soon | Women's Cold Plunge";
@@ -13,51 +13,30 @@ const ogImage = '/images/og-tubs.webp';
 // The 'tubs' constant has been removed as it's no longer needed.
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={pageDescription}>
-  <title>{pageTitle}</title>
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Women's Cold Plunge Benefits" />
-  <meta property="og:locale" content="en_US" />
-  
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={new URL(ogImage, canonicalURL)} />
-  
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LYL708DKYY');
-  </script>
-  <!-- Schema.org JSON-LD (optional, can be simplified or removed) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Tubs Coming Soon",
-      "description": "Our selection of cold plunge tubs will be available soon.",
-      "url": "https://womenscoldplunge.com/tubs"
-    }
-  </script>
-</head>
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+  canonicalURL={canonicalURL.toString()}
+  ogImage={ogImage}
+  ogType="website"
+>
+  <Fragment slot="head">
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Tubs Coming Soon",
+        "description": "Our selection of cold plunge tubs will be available soon.",
+        "url": "https://womenscoldplunge.com/tubs"
+      }
+    </script>
+    <style>
+      @import url('/fonts/fonts.css');
+      .font-display { font-family: 'Montserrat', sans-serif; }
+      .font-body { font-family: 'Open Sans', sans-serif; }
+    </style>
+  </Fragment>
 <body class="font-sans text-gray-800 bg-white">
   <!-- Sticky Navigation (Unchanged) -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
@@ -132,6 +111,4 @@ const ogImage = '/images/og-tubs.webp';
 
     // The other scripts for details toggle and animations are no longer needed for this page.
   </script>
-  <Analytics />
-</body>
-</html>
+</BaseLayout>

@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import Analytics from '@vercel/analytics/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Cold Plunging for Stress Relief and Recovery in Active Women";
 const pageDescription = "Learn how cold plunging accelerates recovery, reduces stress, and enhances performance for active women. Science-backed benefits and practical tips.";
@@ -10,107 +10,83 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://womensco
 const ogImage = '/images/og-stress-recovery.webp';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={pageDescription}>
-  <title>{pageTitle}</title>
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Women's Cold Plunge Benefits" />
-  <meta property="og:locale" content="en_US" />
-  
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={new URL(ogImage, canonicalURL)} />
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="author" content="Women's Cold Plunge Benefits" />
-  
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LYL708DKYY');
-  </script>
-  <!-- Schema.org JSON-LD for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Cold Plunging for Stress Relief and Recovery in Active Women",
-      "description": "Learn how cold plunging accelerates recovery, reduces stress, and enhances performance for active women. Science-backed benefits and practical tips.",
-      "url": "https://womenscoldplunge.com/benefits/stress-recovery",
-      "datePublished": "2025-01-01",
-      "author": {
-        "@type": "Organization",
-        "name": "Women's Cold Plunge Benefits"
-      }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How often should active women cold plunge for stress relief?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Aim for 3-4 times a week, starting with shorter sessions to build tolerance. Consistency helps balance hormones without overwhelming your body."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is cold plunging safe during menstrual cycles?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, but adjust intensity—opt for milder temperatures during your period to avoid discomfort. It can actually ease cramps by reducing inflammation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can cold plunging help with workout recovery?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely; it speeds muscle repair and cuts soreness by boosting circulation. Many women notice quicker bounce-back after intense sessions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I feel too cold during a plunge?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Exit immediately and warm up gradually. Start slower next time, using breathwork to manage the initial shock for better stress-relieving effects."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does cold plunging affect women's hormones positively?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It can lower cortisol and support estrogen balance, especially helpful for active lifestyles. Track your cycle to see personalized benefits."
-          }
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+  canonicalURL={canonicalURL.toString()}
+  ogImage={ogImage}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <!-- Schema.org JSON-LD for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Cold Plunging for Stress Relief and Recovery in Active Women",
+        "description": "Learn how cold plunging accelerates recovery, reduces stress, and enhances performance for active women. Science-backed benefits and practical tips.",
+        "url": "https://womenscoldplunge.com/benefits/stress-recovery",
+        "datePublished": "2025-01-01",
+        "author": {
+          "@type": "Organization",
+          "name": "Women's Cold Plunge Benefits"
         }
-      ]
-    }
-  </script>
-</head>
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How often should active women cold plunge for stress relief?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aim for 3-4 times a week, starting with shorter sessions to build tolerance. Consistency helps balance hormones without overwhelming your body."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is cold plunging safe during menstrual cycles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, but adjust intensity—opt for milder temperatures during your period to avoid discomfort. It can actually ease cramps by reducing inflammation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can cold plunging help with workout recovery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely; it speeds muscle repair and cuts soreness by boosting circulation. Many women notice quicker bounce-back after intense sessions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I feel too cold during a plunge?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Exit immediately and warm up gradually. Start slower next time, using breathwork to manage the initial shock for better stress-relieving effects."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does cold plunging affect women's hormones positively?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It can lower cortisol and support estrogen balance, especially helpful for active lifestyles. Track your cycle to see personalized benefits."
+            }
+          }
+        ]
+      }
+    </script>
+    <style>
+      @import url('/fonts/fonts.css');
+      .font-display { font-family: 'Montserrat', sans-serif; }
+      .font-body { font-family: 'Open Sans', sans-serif; }
+    </style>
+  </Fragment>
 <body class="font-sans text-gray-800 bg-white">
   <!-- Sticky Navigation -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
@@ -490,7 +466,5 @@ const ogImage = '/images/og-stress-recovery.webp';
       mobileMenu.classList.toggle('hidden');
     });
   </script>
-  <Analytics />
-</body>
-</html>
+</BaseLayout>
 
