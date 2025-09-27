@@ -93,6 +93,14 @@ const ogImage = heroImage || '/images/og-default.webp';
         font-weight: 600;
         color: #374151;
       }
+
+      .bg-gold-500 {
+        background-color: #f59e0b;
+      }
+      
+      .bg-gold-600 {
+        background-color: #d97706;
+      }
     </style>
   </Fragment>
 
@@ -190,6 +198,33 @@ const ogImage = heroImage || '/images/og-default.webp';
     <article class="prose prose-lg max-w-none blog-content">
       <slot />
     </article>
+
+    <!-- Related Articles Section -->
+    <section class="mb-12">
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-8 text-center">
+        Related Articles
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <slot name="related-links" />
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center py-12 bg-blue-100 rounded-lg">
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-4">
+        Explore More Cold Plunge Benefits
+      </h2>
+      <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+        Discover comprehensive guides on how cold plunging supports women's wellness and hormonal health.
+      </p>
+      <a 
+        href="/benefits"
+        class="inline-block bg-gold-500 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg hover:bg-gold-600 transition-colors duration-300 transform hover:scale-105"
+        aria-label="Explore Cold Plunge Benefits for Women"
+      >
+        Explore Benefits Guide
+      </a>
+    </section>
   </main>
 
   <!-- Footer -->

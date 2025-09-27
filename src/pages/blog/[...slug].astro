@@ -14,6 +14,193 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Benefits page mappings
+const benefitsPages = {
+  '/benefits/ultimate-guide': {
+    title: 'Ultimate Cold Plunge Guide for Women',
+    description: 'Complete guide to cold plunging for women. Learn the essentials, benefits, safety tips, and how to start your wellness journey.',
+    url: '/benefits/ultimate-guide'
+  },
+  '/benefits/hormonal-balance': {
+    title: 'Cold Plunging and Hormonal Balance for Women',
+    description: 'Discover how cold plunging supports hormonal balance, regulates cortisol, and enhances women\'s endocrine health naturally.',
+    url: '/benefits/hormonal-balance'
+  },
+  '/benefits/stress-recovery': {
+    title: 'Cold Plunging for Stress Relief and Recovery',
+    description: 'Learn how cold plunging accelerates recovery, reduces stress, and enhances performance for active women.',
+    url: '/benefits/stress-recovery'
+  }
+};
+
+// Define internal link mappings for blog posts
+const internalLinks = {
+  'how-to-start-safely': [
+    {
+      title: 'Post-Workout Recovery with Cold Plunging',
+      url: '/blog/women-cold-plunge-post-workout-recovery',
+      description: 'Optimize your post-exercise recovery with strategic cold plunging techniques and timing.'
+    },
+    {
+      title: "Women's Cold Plunge Temperature Guide", 
+      url: '/blog/womens-cold-plunge-temperature',
+      description: 'Learn the optimal temperatures for women\'s cold plunging and how to adjust for your comfort level.'
+    },
+    {
+      title: 'Cold Plunge Perimenopause Benefits',
+      url: '/blog/cold-plunge-perimenopause-benefits', 
+      description: 'Discover how cold plunging can ease perimenopause symptoms and support hormonal balance.'
+    }
+  ],
+  'women-cold-plunge-post-workout-recovery': [
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely',
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: "Women's Cold Plunge Temperature Guide",
+      url: '/blog/womens-cold-plunge-temperature', 
+      description: 'Learn the optimal temperatures for women\'s cold plunging and how to adjust for your comfort level.'
+    },
+    {
+      title: 'Cold Water Therapy for Anxiety in Women',
+      url: '/blog/cold-water-therapy-anxiety-women',
+      description: 'Discover how cold water therapy can naturally reduce anxiety and improve mental wellness.'
+    }
+  ],
+  'womens-cold-plunge-temperature': [
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely',
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: 'Post-Workout Recovery with Cold Plunging',
+      url: '/blog/women-cold-plunge-post-workout-recovery',
+      description: 'Optimize your post-exercise recovery with strategic cold plunging techniques and timing.'
+    },
+    {
+      title: 'Cold Plunge Perimenopause Benefits',
+      url: '/blog/cold-plunge-perimenopause-benefits',
+      description: 'Discover how cold plunging can ease perimenopause symptoms and support hormonal balance.'
+    }
+  ],
+  'cold-plunge-perimenopause-benefits': [
+    {
+      title: 'How to Start Cold Plunging Safely', 
+      url: '/blog/how-to-start-safely',
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: "Women's Cold Plunge Temperature Guide",
+      url: '/blog/womens-cold-plunge-temperature',
+      description: 'Learn the optimal temperatures for women\'s cold plunging and how to adjust for your comfort level.'
+    },
+    {
+      title: 'Cold Water Therapy for Anxiety in Women',
+      url: '/blog/cold-water-therapy-anxiety-women',
+      description: 'Discover how cold water therapy can naturally reduce anxiety and improve mental wellness.'
+    }
+  ],
+  'cold-water-therapy-anxiety-women': [
+    {
+      title: 'Post-Workout Recovery with Cold Plunging',
+      url: '/blog/women-cold-plunge-post-workout-recovery',
+      description: 'Optimize your post-exercise recovery with strategic cold plunging techniques and timing.'
+    },
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely', 
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: 'Cold Plunge Perimenopause Benefits',
+      url: '/blog/cold-plunge-perimenopause-benefits',
+      description: 'Discover how cold plunging can ease perimenopause symptoms and support hormonal balance.'
+    }
+  ],
+  'cold-plunge-menstrual-cycle-benefits': [
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely',
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: 'Cold Plunge Perimenopause Benefits', 
+      url: '/blog/cold-plunge-perimenopause-benefits',
+      description: 'Discover how cold plunging can ease perimenopause symptoms and support hormonal balance.'
+    },
+    {
+      title: "Women's Cold Plunge Temperature Guide",
+      url: '/blog/womens-cold-plunge-temperature',
+      description: 'Learn the optimal temperatures for women\'s cold plunging and how to adjust for your comfort level.'
+    }
+  ],
+  'female-ice-bath-protocol': [
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely', 
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: "Women's Cold Plunge Temperature Guide",
+      url: '/blog/womens-cold-plunge-temperature',
+      description: 'Learn the optimal temperatures for women\'s cold plunging and how to adjust for your comfort level.'
+    },
+    {
+      title: 'Post-Workout Recovery with Cold Plunging',
+      url: '/blog/women-cold-plunge-post-workout-recovery',
+      description: 'Optimize your post-exercise recovery with strategic cold plunging techniques and timing.'
+    }
+  ],
+  'ice-bath-benefits-skin-women': [
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely',
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    },
+    {
+      title: 'Cold Water Therapy for Anxiety in Women',
+      url: '/blog/cold-water-therapy-anxiety-women',
+      description: 'Discover how cold water therapy can naturally reduce anxiety and improve mental wellness.'
+    },
+    {
+      title: 'Cold Plunge Perimenopause Benefits',
+      url: '/blog/cold-plunge-perimenopause-benefits',
+      description: 'Discover how cold plunging can ease perimenopause symptoms and support hormonal balance.'
+    }
+  ],
+  'ice-bath-pcos-benefits': [
+    {
+      title: 'Cold Plunge Perimenopause Benefits',
+      url: '/blog/cold-plunge-perimenopause-benefits',
+      description: 'Discover how cold plunging can ease perimenopause symptoms and support hormonal balance.'
+    },
+    {
+      title: 'Cold Plunge Menstrual Cycle Benefits',
+      url: '/blog/cold-plunge-menstrual-cycle-benefits',
+      description: 'Learn how cold plunging can support menstrual health and hormone regulation.'
+    },
+    {
+      title: 'How to Start Cold Plunging Safely',
+      url: '/blog/how-to-start-safely',
+      description: 'Essential safety guide for women beginning their cold plunging journey with confidence.'
+    }
+  ]
+};
+
+// Get related links for current post
+const blogLinks = internalLinks[entry.slug] || [];
+
+// Get benefits page link if it exists
+const benefitsPageLink = entry.data.benefitsPage ? benefitsPages[entry.data.benefitsPage] : null;
+
+// Combine benefits page (first) with blog links, limiting to 3 total cards
+const currentLinks = benefitsPageLink 
+  ? [benefitsPageLink, ...blogLinks].slice(0, 3)
+  : blogLinks.slice(0, 3);
 ---
 
 <BlogPostLayout 
@@ -24,4 +211,18 @@ const { Content } = await entry.render();
   tags={entry.data.tags}
 >
   <Content />
+  
+  <Fragment slot="related-links">
+    {currentLinks.map((link) => (
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+        <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">
+          <a href={link.url} class="text-blue-600 hover:text-blue-800">{link.title}</a>
+        </h3>
+        <p class="text-gray-600 text-sm mb-4">
+          {link.description}
+        </p>
+        <a href={link.url} class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
+      </div>
+    ))}
+  </Fragment>
 </BlogPostLayout>
