@@ -693,17 +693,21 @@ const ogImage = '/images/og-homepage.webp';
 
     /* Mobile portrait - focus on the woman in the cold plunge area */
     @media (max-width: 768px) and (orientation: portrait) {
-      .hero-video {
-        object-fit: cover;
-        object-position: 20% center;
-        transform: scale(1.3);
+      video.hero-video {
+        object-fit: cover !important;
+        object-position: 30% center !important;
+        transform: scale(1.2);
       }
     }
 
     /* Mobile poster image positioning to show the woman */
     @media (max-width: 768px) {
-      .hero-video[poster] {
-        object-position: 20% center;
+      video.hero-video[poster] {
+        object-position: 30% center !important;
+      }
+      
+      video.hero-video {
+        object-position: 30% center !important;
       }
     }
 
