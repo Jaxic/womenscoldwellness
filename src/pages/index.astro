@@ -563,7 +563,7 @@ const ogImage = '/images/og-homepage.webp';
       // Animate subheadline
       setTimeout(() => {
         const subheadline = document.querySelector('.hero-subheadline');
-        subheadline.classList.remove('opacity-0');
+        subheadline.classList.add('animate');
         subheadline.style.animation = 'slideInUp 1s ease-out forwards';
       }, 2200);
 
@@ -727,7 +727,11 @@ const ogImage = '/images/og-homepage.webp';
 
     .hero-subheadline {
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-      opacity: 0.95;
+      opacity: 0 !important;
+    }
+    
+    .hero-subheadline.animate {
+      opacity: 0.95 !important;
     }
 
     /* Enhanced shimmer effect for highlighted text */
