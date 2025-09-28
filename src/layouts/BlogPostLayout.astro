@@ -81,12 +81,32 @@ const ogImage = heroImage || '/images/og-default.webp';
       }
       
       .blog-content a {
-        color: #3b82f6;
-        text-decoration: underline;
+        color: #3b82f6 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 2px !important;
+        border-bottom: none !important;
       }
       
       .blog-content a:hover {
-        color: #1d4ed8;
+        color: #1d4ed8 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 2px !important;
+      }
+      
+      /* Additional specificity to override Tailwind */
+      article.blog-content a,
+      article.prose a {
+        color: #3b82f6 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 2px !important;
+        border-bottom: none !important;
+      }
+      
+      article.blog-content a:hover,
+      article.prose a:hover {
+        color: #1d4ed8 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 2px !important;
       }
       
       .blog-content strong {
@@ -200,7 +220,7 @@ const ogImage = heroImage || '/images/og-default.webp';
     </article>
 
     <!-- Related Articles Section -->
-    <section class="mb-12">
+    <section class="mb-12 mt-16">
       <h2 class="font-display font-bold text-2xl text-gray-800 mb-8 text-center">
         Related Articles
       </h2>

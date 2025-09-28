@@ -391,3 +391,21 @@ article.prose h3 {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Force underlines on all blog content links - override Tailwind */
+article.blog-content a,
+article.prose a,
+.blog-content a {
+  color: #3b82f6 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  border-bottom: none !important;
+}
+
+article.blog-content a:hover,
+article.prose a:hover,
+.blog-content a:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}

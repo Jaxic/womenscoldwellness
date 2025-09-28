@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-
 import tailwindcss from '@tailwindcss/vite';
+import { rehypeTargetBlank } from './src/plugins/targetBlank.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +15,11 @@ export default defineConfig({
       entryLimit: 45000,
     })
   ],
+  markdown: {
+    rehypePlugins: [
+      rehypeTargetBlank
+    ]
+  },
   vite: {
     plugins: [tailwindcss()]
   }
