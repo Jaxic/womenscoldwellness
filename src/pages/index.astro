@@ -552,13 +552,36 @@ const ogImage = '/images/og-homepage.webp';
 
     // Animation on page load
     document.addEventListener('DOMContentLoaded', function() {
-      // Animate headline words with stagger
-      const headlineWords = document.querySelectorAll('.headline-word');
-      headlineWords.forEach((word, index) => {
-        setTimeout(() => {
-          word.style.animation = 'slideInUp 0.8s ease-out forwards';
-        }, 800 + (index * 200));
-      });
+      // Wait for layout to complete, then analyze word positions
+      setTimeout(() => {
+        const headlineWords = document.querySelectorAll('.headline-word');
+        
+        // Get position data for each word
+        const wordPositions = Array.from(headlineWords).map((word, index) => ({
+          element: word,
+          originalIndex: index,
+          rect: word.getBoundingClientRect(),
+          text: word.textContent.trim()
+        }));
+        
+        // Sort words by visual position (top to bottom, then left to right)
+        wordPositions.sort((a, b) => {
+          const topDiff = Math.abs(a.rect.top - b.rect.top);
+          if (topDiff > 5) { // Different lines (5px tolerance)
+            return a.rect.top - b.rect.top;
+          } else { // Same line, sort by left position
+            return a.rect.left - b.rect.left;
+          }
+        });
+        
+        // Animate words in their visual order
+        wordPositions.forEach((wordData, visualIndex) => {
+          setTimeout(() => {
+            wordData.element.style.animation = 'slideInUp 0.8s ease-out forwards';
+          }, 800 + (visualIndex * 200));
+        });
+        
+      }, 100); // Small delay to ensure layout is complete
 
       // Animate subheadline
       setTimeout(() => {
