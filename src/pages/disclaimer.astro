@@ -1,0 +1,262 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Medical Disclaimer - Cold Plunge Benefits for Women";
+const pageDescription = "Important medical disclaimer and health information for cold plunge practices. Please read before starting any cold therapy routine.";
+
+// Generate canonical URL and Open Graph image
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.womenscoldwellness.com');
+const ogImage = '/images/og-default.webp';
+---
+
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+  canonicalURL={canonicalURL.toString()}
+  ogImage={ogImage}
+  ogType="website"
+>
+  <Fragment slot="head">
+    <!-- Page-specific styles -->
+    <style>
+      @import url('/fonts/fonts.css');
+      
+      .font-display {
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      .font-body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </Fragment>
+
+<body class="font-sans text-gray-800 bg-white">
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold font-display text-blue-600 hover:text-blue-700 transition-colors">Cold Plunge Benefits for Women</a>
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+      <ul id="nav-menu" class="hidden md:flex space-x-6 text-gray-800">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li><a href="/benefits" class="hover:text-blue-600 transition-colors">Benefits</a></li>
+        <li><a href="/tubs" class="hover:text-blue-600 transition-colors">Best Tubs</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors">Blog</a></li>
+        <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
+      </ul>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <ul class="flex flex-col items-center py-4 space-y-4 text-gray-800">
+        <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+        <li><a href="/benefits" class="hover:text-blue-600 transition-colors">Benefits</a></li>
+        <li><a href="/tubs" class="hover:text-blue-600 transition-colors">Best Tubs</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition-colors">Blog</a></li>
+        <li><a href="/about" class="hover:text-blue-600 transition-colors">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    
+    <!-- Warning Banner -->
+    <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8 rounded-r-lg">
+      <div class="flex items-center">
+        <svg class="w-6 h-6 text-red-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+        </svg>
+        <div>
+          <h2 class="font-display font-bold text-red-800 text-lg mb-1">Important Health Warning</h2>
+          <p class="text-red-700 text-sm">Consult your healthcare provider before starting any cold plunge practice.</p>
+        </div>
+      </div>
+    </div>
+
+    <article class="prose prose-lg max-w-none">
+      <h1 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-6">Medical Disclaimer</h1>
+      
+      <p class="text-gray-600 mb-8"><strong>Effective Date:</strong> January 1, 2025</p>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Important Health Information</h2>
+      
+      <p class="mb-6">The information provided on Women's Cold Plunge Benefits is for educational and informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Not Medical Advice</h2>
+
+      <h3 class="font-display font-semibold text-xl text-gray-800 mb-3 mt-6">No Doctor-Patient Relationship</h3>
+      
+      <p class="mb-6">The content on this website does not create a doctor-patient relationship between you and Women's Cold Plunge Benefits, its authors, or any contributors. We are not healthcare providers, and the information presented should not be considered medical advice.</p>
+
+      <h3 class="font-display font-semibold text-xl text-gray-800 mb-3 mt-6">Educational Purpose Only</h3>
+      
+      <p class="mb-6">All content, including articles, guides, and recommendations about cold water immersion therapy, is provided for general informational purposes. This information is based on research, published studies, and expert sources, but it is not personalized medical guidance.</p>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Consult Your Healthcare Provider</h2>
+      
+      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6 rounded-r-lg">
+        <p class="text-yellow-800 font-semibold mb-2">Before starting any cold plunge or cold water immersion practice, you must consult with your healthcare provider</p>
+        <p class="text-yellow-700 text-sm">This is especially important if you have any existing health conditions.</p>
+      </div>
+
+      <p class="mb-4"><strong>Consult your healthcare provider if you have any of the following conditions:</strong></p>
+      
+      <ul class="mb-6 space-y-1">
+        <li>Cardiovascular disease or heart conditions</li>
+        <li>High blood pressure or low blood pressure</li>
+        <li>Raynaud's disease or circulation problems</li>
+        <li>Respiratory conditions (including asthma)</li>
+        <li>Pregnancy or nursing</li>
+        <li>Cold urticaria (cold-induced hives) or cold sensitivity</li>
+        <li>Open wounds or skin conditions</li>
+        <li>Epilepsy or seizure disorders</li>
+        <li>Diabetes</li>
+        <li>Peripheral neuropathy</li>
+        <li>Recent surgery or injuries</li>
+        <li>Any chronic health conditions</li>
+        <li>Are taking medications that may affect your response to cold exposure</li>
+      </ul>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Potential Risks</h2>
+      
+      <p class="mb-4">Cold water immersion carries inherent risks that may include but are not limited to:</p>
+      
+      <ul class="mb-6 space-y-1">
+        <li>Cold shock response</li>
+        <li>Hypothermia</li>
+        <li>Cardiac arrhythmias or cardiac events</li>
+        <li>Fainting or loss of consciousness</li>
+        <li>Drowning</li>
+        <li>Increased blood pressure</li>
+        <li>Respiratory distress</li>
+        <li>Adverse reactions to sudden temperature changes</li>
+      </ul>
+
+      <div class="bg-red-50 border border-red-200 p-6 mb-6 rounded-lg">
+        <p class="text-red-800 font-semibold">These risks can be serious or life-threatening.</p>
+        <p class="text-red-700 text-sm mt-1">Proper precautions, gradual adaptation, and medical clearance are essential.</p>
+      </div>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Individual Results May Vary</h2>
+      
+      <p class="mb-6">The benefits of cold water immersion discussed on this website are based on published research and reported experiences. However, individual responses to cold exposure vary significantly. What works for one person may not work for another, and some individuals may experience adverse effects.</p>
+      
+      <p class="mb-6">We make no guarantees about specific results you may or may not experience from cold water immersion therapy.</p>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Emergency Situations</h2>
+      
+      <p class="mb-4">If you experience any of the following during or after cold water immersion, seek immediate medical attention:</p>
+      
+      <ul class="mb-6 space-y-1">
+        <li>Chest pain or pressure</li>
+        <li>Difficulty breathing</li>
+        <li>Severe shivering that doesn't stop after warming</li>
+        <li>Confusion or disorientation</li>
+        <li>Loss of coordination</li>
+        <li>Irregular heartbeat</li>
+        <li>Numbness or tingling that persists</li>
+        <li>Severe pain</li>
+        <li>Any other concerning symptoms</li>
+      </ul>
+
+      <div class="bg-red-50 border border-red-200 p-6 mb-6 rounded-lg">
+        <p class="text-red-800 font-bold text-lg">In an emergency, call 911 or your local emergency services immediately.</p>
+      </div>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">No Liability</h2>
+      
+      <p class="mb-4">By using this website and implementing any information found here, you acknowledge and agree that:</p>
+      
+      <ul class="mb-6 space-y-1">
+        <li>You do so at your own risk</li>
+        <li>Women's Cold Plunge Benefits and its authors are not liable for any injuries, damages, or adverse effects that may result from your use of cold water immersion or any products or practices discussed on this site</li>
+        <li>You are responsible for your own health and safety decisions</li>
+      </ul>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Accuracy of Information</h2>
+      
+      <p class="mb-4">While we strive to provide accurate and up-to-date information based on credible sources, medical knowledge evolves constantly. We cite peer-reviewed research and reputable medical institutions, but:</p>
+      
+      <ul class="mb-6 space-y-1">
+        <li>We cannot guarantee the completeness or accuracy of all information</li>
+        <li>Medical research is ongoing and findings may change</li>
+        <li>Information should not be relied upon as current medical guidance</li>
+        <li>Always verify information with your healthcare provider</li>
+      </ul>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Product Recommendations</h2>
+      
+      <p class="mb-6">Any cold plunge tubs, equipment, or products recommended on this site are for informational purposes only. We are not medical device manufacturers or distributors. Follow all manufacturer safety guidelines and consult your healthcare provider before using any cold therapy equipment.</p>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Children and Vulnerable Populations</h2>
+      
+      <p class="mb-4">Cold water immersion may pose additional risks for:</p>
+      
+      <ul class="mb-6 space-y-1">
+        <li>Children and adolescents</li>
+        <li>Elderly individuals</li>
+        <li>Pregnant or nursing women</li>
+        <li>Individuals with compromised immune systems</li>
+        <li>Those with mental health conditions</li>
+      </ul>
+
+      <div class="bg-yellow-50 border border-yellow-200 p-6 mb-6 rounded-lg">
+        <p class="text-yellow-800 font-semibold">These populations should exercise extra caution and obtain medical clearance before attempting cold water immersion.</p>
+      </div>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Updates to This Disclaimer</h2>
+      
+      <p class="mb-6">We may update this medical disclaimer periodically to reflect changes in practices or legal requirements. The "Effective Date" at the top indicates when the disclaimer was last revised. Your continued use of the website after any changes constitutes acceptance of those changes.</p>
+
+      <h2 class="font-display font-bold text-2xl text-gray-800 mb-4 mt-8">Questions or Concerns</h2>
+      
+      <p class="mb-6">If you have questions about this medical disclaimer, please contact us. However, please note that we cannot provide medical advice or answer specific health questions. For medical guidance, please consult your healthcare provider.</p>
+
+      <hr class="my-8 border-gray-300">
+
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+        <p class="text-blue-800 font-bold text-lg mb-2">Remember: Your health and safety are paramount.</p>
+        <p class="text-blue-700">When in doubt, always consult a qualified healthcare professional before beginning any new health practice, including cold water immersion therapy.</p>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <a href="/disclosure" class="hover:text-blue-400 transition-colors">Affiliate Disclosure</a> | 
+        <a href="/privacy" class="hover:text-blue-400 transition-colors">Privacy Policy</a> | 
+        <a href="/disclaimer" class="hover:text-blue-400 transition-colors">Disclaimer</a>
+      </div>
+      <div class="flex space-x-4 mb-4 md:mb-0">
+        <a href="https://instagram.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Instagram">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.982-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.2-4.354-2.618-6.782-6.98-6.982-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
+          </svg>
+        </a>
+        <a href="https://pinterest.com" class="hover:text-blue-400 transition-colors" aria-label="Follow on Pinterest">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.14.5C5.86.5 1.7 5.29 1.7 11.57c0 4.45 2.72 8.24 6.58 9.76-.09-.81-.17-2.06.03-2.94.18-.79 1.18-5.03 1.18-5.03s-.3-.6-.3-1.49c0-1.39.81-2.43 1.81-2.43.85 0 1.26.64 1.26 1.41 0 .86-.55 2.14-.83 3.33-.24.99.49 1.8 1.46 1.8 1.75 0 3.1-1.84 3.1-4.49 0-2.35-1.69-3.99-4.1-3.99-2.79 0-4.43 2.09-4.43 4.25 0 .84.32 1.74.73 2.23.08.1.09.18.07.28-.07.34-.23 1.06-.27 1.2-.04.15-.14.18-.32.11-1.2-.44-1.95-1.83-1.95-2.95 0-2.4 1.74-4.6 5.02-4.6 2.64 0 4.69 1.88 4.69 4.39 0 2.62-1.65 4.73-3.94 4.73-.77 0-1.49-.4-1.74-.87 0 0-.38 1.46-.47 1.82-.17.67-.5 1.51-.75 2.02.56.17 1.14.26 1.75.26 6.28 0 11.36-5.29 11.36-11.57S18.42.5 12.14.5z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm">© 2025 Cold Plunge Benefits for Women</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</BaseLayout>
