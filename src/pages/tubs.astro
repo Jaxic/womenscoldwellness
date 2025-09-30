@@ -2,9 +2,8 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Updated page title and description for the "Coming Soon" status
-const pageTitle = "Tubs Coming Soon | Cold Plunge Benefits for Women";
-const pageDescription = "Our curated list of the best cold plunge tubs is coming soon. Stay tuned for our top recommendations for women's wellness.";
+const pageTitle = "Best Cold Plunge Tubs for Women | Expert Reviews & Buying Guide";
+const pageDescription = "Find the perfect cold plunge tub for your wellness journey. Expert reviews tested specifically for women's needs, hormone balance, and comfort.";
 
 // Generate canonical URL and Open Graph image
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.womenscoldwellness.com');
@@ -26,8 +25,8 @@ const ogImage = '/images/og-tubs.webp';
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Tubs Coming Soon",
-        "description": "Our selection of cold plunge tubs will be available soon.",
+        "name": "Best Cold Plunge Tubs for Women",
+        "description": "Find the perfect cold plunge tub for your wellness journey. Expert reviews tested specifically for women's needs, hormone balance, and comfort.",
         "url": "https://www.womenscoldwellness.com/tubs"
       }
     </script>
@@ -67,13 +66,136 @@ const ogImage = '/images/og-tubs.webp';
     </div>
   </header>
 
-  <!-- Main Content - REPLACED -->
-  <main class="container mx-auto px-4 py-12 flex items-center justify-center" style="min-height: calc(100vh - 250px);">
-    <!-- Centered "Coming Soon" Message -->
-    <div class="text-center">
-        <h1 class="text-5xl md:text-7xl font-bold text-gray-800 font-display">
-            Coming Soon
-        </h1>
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12 max-w-6xl">
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-gray-800 mb-6 leading-tight">
+        Best Cold Plunge Tubs for Women
+      </h1>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+        Find the perfect cold plunge tub for your wellness journey. Our expert reviews focus on women's specific needs, from hormone balance to comfort and safety.
+      </p>
+    </div>
+
+    <!-- Featured Guide Card -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex flex-col lg:flex-row items-center gap-8">
+          <div class="flex-1">
+            <div class="mb-4">
+              <span class="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                Featured Guide
+              </span>
+            </div>
+            <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-4">
+              Best Cold Plunge Tubs for Women Under $300
+            </h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Affordable cold plunge tubs under $300 tested specifically for women's wellness needs. Compare budget options for hormone balance and stress relief without the premium price tag.
+            </p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">💰 Budget-Focused</span>
+              <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">💜 Hormone-Focused</span>
+              <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">📊 Cost Analysis</span>
+            </div>
+            <div class="space-y-2 text-sm text-gray-600 mb-6">
+              <div class="flex items-center">
+                <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                All options under $300
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Budget-focused cost analysis
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Real ongoing cost breakdowns
+              </div>
+            </div>
+            <a 
+              href="/tubs/best-cold-plunge-tubs-for-women-2025"
+              class="inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105"
+            >
+              Read Full Guide →
+            </a>
+          </div>
+          <div class="lg:w-1/3">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="font-display font-semibold text-lg text-gray-800 mb-4">Quick Comparison</h3>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">SOLSTICE 1-2 Person</span>
+                  <span class="font-semibold text-green-600">$150-180</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">XXL Ice Bath (186 gal)</span>
+                  <span class="font-semibold text-blue-600">$200-250</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Cold Pod XL Bundle</span>
+                  <span class="font-semibold text-purple-600">$230-280</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div class="text-center p-6">
+        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-800 mb-3">Budget-Conscious</h3>
+        <p class="text-gray-600">We focus on affordable options under $300 that deliver real wellness benefits without breaking the bank.</p>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-800 mb-3">Women's Health Focus</h3>
+        <p class="text-gray-600">We evaluate each tub for hormone support, menstrual cycle compatibility, and safety features important to women.</p>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-800 mb-3">Value-Focused</h3>
+        <p class="text-gray-600">We help you find the best value options under $300 for your wellness investment without compromising on quality.</p>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center bg-gradient-to-r from-blue-600 to-teal-600 text-white p-8 rounded-lg">
+      <h2 class="font-display font-bold text-2xl md:text-3xl mb-4">
+        Ready to Find Your Perfect Cold Plunge Tub?
+      </h2>
+      <p class="text-xl mb-6 opacity-90">
+        Get our expert recommendations for budget-friendly options at every price point.
+      </p>
+      <a 
+        href="/tubs/best-cold-plunge-tubs-for-women-2025"
+        class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors duration-300"
+      >
+        View Complete Guide
+      </a>
     </div>
   </main>
 
@@ -103,13 +225,11 @@ const ogImage = '/images/og-tubs.webp';
   </footer>
 
   <script>
-    // Hamburger menu toggle (Unchanged)
+    // Hamburger menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-
-    // The other scripts for details toggle and animations are no longer needed for this page.
   </script>
 </BaseLayout>
