@@ -77,6 +77,19 @@ const ogImage = '/images/og-tubs-women-2025.webp';
         padding: 1.5rem;
         margin: 1rem 0;
       }
+      
+      /* Ensure uniform image sizing across product sections */
+      .product-image {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+      }
+      /* Auto fallback to contain for unusual aspect ratios to prevent important content cropping */
+      .product-image.contain {
+        object-fit: contain;
+        background-color: #f8fafc; /* subtle backdrop for letterboxing */
+      }
     </style>
   </Fragment>
 
@@ -195,6 +208,15 @@ const ogImage = '/images/og-tubs-women-2025.webp';
 
       <h2 class="font-display font-bold text-2xl text-gray-800 mb-6">1. SOLSTICE 1-2 Person Cold Tub - Best for Beginners</h2>
       
+      <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="w-full">
+          <img src="/images/SOLSTICE.webp" alt="SOLSTICE 1-2 person cold tub with round design and insulated lid" loading="lazy" decoding="async" class="product-image rounded-lg shadow-sm" />
+        </figure>
+        <figure class="w-full">
+          <img src="/images/SOLSTICE2.webp" alt="SOLSTICE cold tub in use, showcasing depth and sturdy construction" loading="lazy" decoding="async" class="product-image rounded-lg shadow-sm" />
+        </figure>
+      </div>
+      
       <div class="mb-6">
         <p><strong>Price:</strong> ~$150-180</p>
         <p><strong>Capacity:</strong> 100 gallons</p>
@@ -271,6 +293,15 @@ const ogImage = '/images/og-tubs-women-2025.webp';
 
       <h2 class="font-display font-bold text-2xl text-gray-800 mb-6">2. XXL Ice Bath (186 Gallon) - Best for Taller Women & Families</h2>
       
+      <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="w-full">
+          <img src="/images/XXL.webp" alt="XXL 186-gallon ice bath with large capacity suitable for taller users" loading="lazy" decoding="async" class="product-image rounded-lg shadow-sm" />
+        </figure>
+        <figure class="w-full">
+          <img src="/images/XXL2.webp" alt="XXL ice bath bundle including insulated lid, step stool, and accessories" loading="lazy" decoding="async" class="product-image rounded-lg shadow-sm" />
+        </figure>
+      </div>
+      
       <div class="mb-6">
         <p><strong>Price:</strong> ~$200-250</p>
         <p><strong>Capacity:</strong> 186 gallons</p>
@@ -346,6 +377,15 @@ const ogImage = '/images/og-tubs-women-2025.webp';
       <hr class="my-8">
 
       <h2 class="font-display font-bold text-2xl text-gray-800 mb-6">3. Cold Pod XL Insulated Bundle - Best Long-Term Value</h2>
+      
+      <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="w-full">
+          <img src="/images/ColdPod.webp" alt="Cold Pod XL insulated cold plunge tub with reflective silver cover" loading="lazy" decoding="async" class="product-image rounded-lg shadow-sm" />
+        </figure>
+        <figure class="w-full">
+          <img src="/images/ColdPod2.webp" alt="Cold Pod XL setup demonstrating premium insulation and sturdy support legs" loading="lazy" decoding="async" class="product-image rounded-lg shadow-sm" />
+        </figure>
+      </div>
       
       <div class="mb-6">
         <p><strong>Price:</strong> ~$230-280</p>
@@ -430,48 +470,6 @@ const ogImage = '/images/og-tubs-women-2025.webp';
 
       <hr class="my-8">
 
-      <h2 class="font-display font-bold text-2xl text-gray-800 mb-6">Budget Breakdown: First Month Costs</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="budget-card">
-          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">SOLSTICE Setup</h3>
-          <ul class="space-y-1 text-sm mb-4">
-            <li> Tub: $150-180</li>
-            <li> Water treatment: $30</li>
-            <li> Thermometer (if needed): $20</li>
-            <li> Robe: $40</li>
-            <li> Ice (4 weeks): $160</li>
-          </ul>
-          <p class="font-semibold text-blue-600">Total First Month: ~$400-430</p>
-        </div>
-
-        <div class="budget-card">
-          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">XXL Ice Bath Setup</h3>
-          <ul class="space-y-1 text-sm mb-4">
-            <li> Tub bundle: $200-250</li>
-            <li> Water treatment: $30</li>
-            <li> Robe: $40</li>
-            <li> Ice (4 weeks): $200 (more due to capacity)</li>
-          </ul>
-          <p class="font-semibold text-blue-600">Total First Month: ~$470-520</p>
-        </div>
-
-        <div class="budget-card">
-          <h3 class="font-display font-semibold text-lg text-gray-800 mb-3">Cold Pod XL Bundle Setup</h3>
-          <ul class="space-y-1 text-sm mb-4">
-            <li> Tub + cover: $230-280</li>
-            <li> Water treatment: $30</li>
-            <li> Thermometer: $20</li>
-            <li> Robe: $40</li>
-            <li> Ice (4 weeks): $120 (40% less due to insulation)</li>
-          </ul>
-          <p class="font-semibold text-blue-600">Total First Month: ~$440-490</p>
-          <p class="text-sm text-green-600">Ongoing monthly: ~$150 (lowest ice cost)</p>
-        </div>
-      </div>
-
-      <hr class="my-8">
-
       <h2 class="font-display font-bold text-2xl text-gray-800 mb-6">Frequently Asked Questions</h2>
 
       <div class="space-y-6">
@@ -551,7 +549,7 @@ const ogImage = '/images/og-tubs-women-2025.webp';
         </div>
       </div>
 
-      <div class="bg-gray-100 border border-gray-200 p-8 rounded-lg text-center">
+      <div class="bg-blue-50 border border-blue-200 p-8 rounded-lg text-center">
         <h2 class="font-display font-bold text-2xl mb-4 text-gray-800">Start Your Wellness Journey for Under $300</h2>
         <p class="text-xl mb-6 text-gray-700">You don't need premium prices to get premium benefits. These budget-friendly options deliver real results for hormone balance, stress relief, and overall wellness.</p>
         <div class="bg-white border border-gray-300 p-4 rounded-lg mb-6">
@@ -563,13 +561,36 @@ const ogImage = '/images/og-tubs-women-2025.webp';
 
       <hr class="my-8">
 
-      <div class="bg-yellow-50 border border-yellow-200 p-6 rounded-lg">
-        <p class="text-sm text-yellow-800 mb-2">
-          <em><strong>Affiliate Disclosure:</strong> This page contains affiliate links to Amazon products. When you purchase through our links, we may earn a small commission at no additional cost to you. This helps us provide free, women-focused cold plunge education. <a href="/disclosure" class="text-yellow-600 hover:text-yellow-800 underline">Read our full disclosure policy →</a></em>
-        </p>
-        <p class="text-sm text-yellow-700">
-          <em><strong>Medical Disclaimer:</strong> Cold plunging is not a substitute for medical treatment. The information provided here is for educational purposes only and should not be considered medical advice. Cold water immersion may not be suitable for everyone. Consult your healthcare provider before starting cold water immersion therapy, especially if you have cardiovascular conditions, pregnancy, Raynaud's disease, or any chronic health conditions. Individual results vary. <a href="/disclaimer" class="text-yellow-600 hover:text-yellow-800 underline">Read full disclaimer →</a></em>
-        </p>
+      <div class="space-y-4">
+        <!-- Affiliate Disclosure Accordion -->
+        <div class="border border-gray-200 rounded-lg">
+          <button class="w-full px-4 py-3 text-left bg-gray-50 hover:bg-gray-100 rounded-lg flex justify-between items-center" onclick="toggleAccordion('affiliate')">
+            <span class="font-semibold text-gray-800">Affiliate Disclosure</span>
+            <svg id="affiliate-icon" class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="affiliate-content" class="hidden px-4 pb-4">
+            <p class="text-sm text-gray-700">
+              <em>This page contains affiliate links to Amazon products. When you purchase through our links, we may earn a small commission at no additional cost to you. This helps us provide free, women-focused cold plunge education. <a href="/disclosure" class="text-blue-600 hover:text-blue-800 underline">Read our full disclosure policy →</a></em>
+            </p>
+          </div>
+        </div>
+
+        <!-- Medical Disclaimer Accordion -->
+        <div class="border border-gray-200 rounded-lg">
+          <button class="w-full px-4 py-3 text-left bg-gray-50 hover:bg-gray-100 rounded-lg flex justify-between items-center" onclick="toggleAccordion('medical')">
+            <span class="font-semibold text-gray-800">Medical Disclaimer</span>
+            <svg id="medical-icon" class="w-5 h-5 text-gray-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="medical-content" class="hidden px-4 pb-4">
+            <p class="text-sm text-gray-700">
+              <em>Cold plunging is not a substitute for medical treatment. The information provided here is for educational purposes only and should not be considered medical advice. Cold water immersion may not be suitable for everyone. Consult your healthcare provider before starting cold water immersion therapy, especially if you have cardiovascular conditions, pregnancy, Raynaud's disease, or any chronic health conditions. Individual results vary. <a href="/disclaimer" class="text-blue-600 hover:text-blue-800 underline">Read full disclaimer →</a></em>
+            </p>
+          </div>
+        </div>
       </div>
     </article>
   </main>
@@ -602,9 +623,46 @@ const ogImage = '/images/og-tubs-women-2025.webp';
     // Hamburger menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Normalize product image cropping: switch to contain for extreme aspect ratios
+    const productImages = document.querySelectorAll('.product-image');
+    productImages.forEach((el) => {
+      if (!(el instanceof HTMLImageElement)) return;
+      const applyContainIfNeeded = () => {
+        const w = el.naturalWidth;
+        const h = el.naturalHeight;
+        if (!w || !h) return;
+        const ratio = w / h;
+        // If image is very tall (portrait) or very wide (panorama), avoid hard cropping
+        if (ratio < 0.9 || ratio > 1.6) {
+          el.classList.add('contain');
+        }
+      };
+      if (el.complete) {
+        applyContainIfNeeded();
+      } else {
+        el.addEventListener('load', applyContainIfNeeded);
+      }
     });
+
+    // Accordion toggling for Affiliate and Medical sections
+    // Expose on window so inline onclick can access it
+    // Type-safe assignment for global access
+    (window as unknown as { toggleAccordion: (id: string) => void }).toggleAccordion = (id: string) => {
+      const content = document.getElementById(`${id}-content`);
+      const icon = document.getElementById(`${id}-icon`);
+      if (content) {
+        content.classList.toggle('hidden');
+      }
+      if (icon) {
+        icon.classList.toggle('rotate-180');
+      }
+    };
   </script>
 </body>
 </BaseLayout>
