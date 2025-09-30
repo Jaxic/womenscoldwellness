@@ -120,7 +120,7 @@ const ogImage = '/images/og-tubs.webp';
               </div>
             </div>
             <a 
-              href="/tubs/best-cold-plunge-tubs-for-women-2025"
+              href="/tubs/best-cold-plunge-tubs-for-women-under-300"
               class="inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105"
             >
               Read Full Guide →
@@ -191,7 +191,7 @@ const ogImage = '/images/og-tubs.webp';
         Get our expert recommendations for budget-friendly options at every price point.
       </p>
       <a 
-        href="/tubs/best-cold-plunge-tubs-for-women-2025"
+        href="/tubs/best-cold-plunge-tubs-for-women-under-300"
         class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors duration-300"
       >
         View Complete Guide
@@ -228,8 +228,10 @@ const ogImage = '/images/og-tubs.webp';
     // Hamburger menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   </script>
 </BaseLayout>
