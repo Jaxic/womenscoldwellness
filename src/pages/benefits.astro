@@ -184,6 +184,54 @@ const ogImage = '/images/og-benefits.webp';
       </div>
     </section>
 
+    <!-- Affiliate Section A: Ready to Experience These Benefits? -->
+    <section class="mb-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-6">
+          Ready to Experience These Benefits?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+          Starting your cold plunge journey is easier than you think. Whether you're on a budget or ready for a complete system, we've researched the best options for women:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- For Beginners & Budget-Conscious -->
+          <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+            <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+              For Beginners & Budget-Conscious
+            </h3>
+            <p class="text-gray-600 mb-6 flex-grow">
+              Explore our guide to affordable cold plunges under $300 - perfect for testing the practice without major investment.
+            </p>
+            <a 
+              href="/best-cold-plunges-under-300"
+              class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 mt-auto"
+              aria-label="View Budget-Friendly Cold Plunges Under $300"
+            >
+              View Budget Options →
+            </a>
+          </div>
+
+          <!-- For Serious Practitioners -->
+          <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+            <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+              For Serious Practitioners
+            </h3>
+            <p class="text-gray-600 mb-6 flex-grow">
+              If you're ready to eliminate ice purchases, check out our complete cold plunge systems with chillers review.
+            </p>
+            <a 
+              href="/complete-cold-plunge-systems"
+              class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 mt-auto"
+              aria-label="Explore Complete Systems with Automated Chillers"
+            >
+              Explore Complete Systems →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="text-center py-12 bg-blue-100 rounded-lg">
       <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-4">
@@ -199,6 +247,58 @@ const ogImage = '/images/og-benefits.webp';
       >
         Shop Top Tubs
       </a>
+    </section>
+
+    <!-- Affiliate Section B: Start Your Cold Plunge Journey Today -->
+    <section class="mb-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-800 mb-6">
+          Start Your Cold Plunge Journey Today
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+          Based on our research and analysis, here are the best options for women at different commitment levels:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Just Starting Out -->
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+            <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+              Just Starting Out?
+            </h3>
+            <p class="text-gray-600 mb-6 flex-grow">
+              Perfect for testing the waters without a major investment. These budget-friendly options let you experience the benefits without breaking the bank.
+            </p>
+            <a 
+              href="/best-cold-plunges-under-300"
+              class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto"
+              aria-label="View Budget-Friendly Cold Plunges Under $300"
+            >
+              View Budget-Friendly Options →
+            </a>
+          </div>
+
+          <!-- Ready for Daily Practice -->
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+            <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+              Ready for Daily Practice?
+            </h3>
+            <p class="text-gray-600 mb-6 flex-grow">
+              Complete systems with automated chillers for serious practitioners who want to eliminate ice purchases and maintain consistent temperatures.
+            </p>
+            <a 
+              href="/complete-cold-plunge-systems"
+              class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto"
+              aria-label="Explore Complete Systems with Automated Chillers"
+            >
+              Explore Complete Systems →
+            </a>
+          </div>
+        </div>
+        
+        <p class="text-sm text-gray-500 mt-6 italic">
+          All our recommendations are based on product specifications, customer reviews, and features specifically beneficial for women's wellness needs.
+        </p>
+      </div>
     </section>
   </main>
 
@@ -230,9 +330,12 @@ const ogImage = '/images/og-benefits.webp';
     // Hamburger menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
 
     // Intersection Observer for pillar cards animation
     document.addEventListener('DOMContentLoaded', function() {
@@ -247,8 +350,10 @@ const ogImage = '/images/og-benefits.webp';
             const cards = document.querySelectorAll('.pillar-card');
             cards.forEach((card, cardIndex) => {
               setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.animation = 'slideInUp 0.8s ease-out forwards';
+                if (card instanceof HTMLElement) {
+                  card.style.opacity = '1';
+                  card.style.animation = 'slideInUp 0.8s ease-out forwards';
+                }
               }, cardIndex * 200);
             });
             observer.unobserve(entry.target);

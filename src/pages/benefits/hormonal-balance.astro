@@ -267,6 +267,51 @@ const ogImage = '/images/og-hormonal-balance.webp';
       </ol>
       <p>Over time, this gradual method creates deep hormonal balance, giving women greater control over their wellness.</p>
 
+      <h3>Choosing the Right Cold Plunge for Hormonal Benefits</h3>
+      <p>Temperature precision matters for hormonal benefits. Here's what to consider:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- Ice-Based Systems -->
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+          <h4 class="font-display font-bold text-lg text-gray-800 mb-4">
+            Ice-Based Systems (Budget: $150-280)
+          </h4>
+          <ul class="text-gray-600 mb-6 flex-grow space-y-2">
+            <li><strong>Good for:</strong> Testing hormone benefits, 2-3x/week use</li>
+            <li><strong>Challenge:</strong> Less precise temperature control</li>
+            <li><strong>Best for:</strong> Beginners exploring hormonal benefits</li>
+          </ul>
+          <a 
+            href="/best-cold-plunges-under-300"
+            class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto no-underline"
+            style="color: #1f2937 !important;"
+            aria-label="View Budget-Friendly Cold Plunges Under $300"
+          >
+            See our top budget picks →
+          </a>
+        </div>
+
+        <!-- Chiller Systems -->
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+          <h4 class="font-display font-bold text-lg text-gray-800 mb-4">
+            Chiller Systems (Investment: $800-1,500)
+          </h4>
+          <ul class="text-gray-600 mb-6 flex-grow space-y-2">
+            <li><strong>Good for:</strong> Daily hormone support, precise temps</li>
+            <li><strong>Benefit:</strong> Consistent 45-50°F for optimal results</li>
+            <li><strong>Best for:</strong> Serious practitioners seeking precision</li>
+          </ul>
+          <a 
+            href="/complete-cold-plunge-systems"
+            class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto no-underline"
+            style="color: #1f2937 !important;"
+            aria-label="Compare Complete Systems with Automated Chillers"
+          >
+            Compare complete systems →
+          </a>
+        </div>
+      </div>
+
       <h2>Optimizing Your Cold Plunging Results for Better Hormonal Balance</h2>
       <p>To get the most from cold plunging, pay attention to timing, recovery, and supportive habits that heighten its hormonal advantages for women. Match your sessions to your cycle—do more during the follicular phase to support estrogen, and keep them milder in the luteal phase to prevent cortisol spikes. Combine with anti-inflammatory foods rich in omega-3s to promote progesterone stability. If you can, track biomarkers using apps for sleep and mood insights. This fine-tuning turns simple plunging into a precise tool, leading to better fertility cues and fewer menopausal symptoms. Optimizing like this helps you gain the greatest benefits safely.</p>
 
@@ -332,6 +377,47 @@ const ogImage = '/images/og-hormonal-balance.webp';
         <li>Perimenopause: Use for hot flash relief.</li>
         <li>Young adults: Build for future fertility resilience.</li>
       </ul>
+
+      <h2>Equipment for Your Hormonal Health Journey</h2>
+      <p>To experience these hormonal benefits consistently, you'll need reliable equipment:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- Budget-Friendly Options -->
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+            Budget-Friendly Options ($150-280)
+          </h3>
+          <p class="text-gray-600 mb-6 flex-grow">
+            If you're exploring cold therapy for hormone balance, our budget cold plunge guide covers affordable options that deliver results.
+          </p>
+          <a 
+            href="/best-cold-plunges-under-300"
+            class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto no-underline"
+            style="color: #1f2937 !important;"
+            aria-label="View Budget-Friendly Cold Plunges Under $300"
+          >
+            View Budget Guide →
+          </a>
+        </div>
+
+        <!-- Automated Systems -->
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+            Automated Systems ($800-1,500)
+          </h3>
+          <p class="text-gray-600 mb-6 flex-grow">
+            For women plunging 4+ times weekly for hormonal support, complete systems with chillers eliminate ice hassles and provide precise temperature control.
+          </p>
+          <a 
+            href="/complete-cold-plunge-systems"
+            class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto no-underline"
+            style="color: #1f2937 !important;"
+            aria-label="Explore Complete Systems with Automated Chillers"
+          >
+            Explore Complete Systems →
+          </a>
+        </div>
+      </div>
 
       <h2>Integrating Cold Plunging into Your Lifestyle for Hormonal Balance</h2>
       <p>Making cold plunging part of your lifestyle for hormonal balance turns it from a task into a rewarding habit. Fit sessions into your mornings for a burst of energy or evenings to relax, aligning them with your cycle for the best outcomes. Combine with mindfulness activities like journaling to heighten your awareness of hormonal changes. As it becomes routine, you'll likely notice more consistent moods, sounder sleep, and a sense of empowered wellness. This easy integration meets women's specific endocrine needs over the long haul.</p>
@@ -468,9 +554,12 @@ const ogImage = '/images/og-hormonal-balance.webp';
     // Hamburger menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   </script>
 </BaseLayout>
 

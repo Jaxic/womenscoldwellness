@@ -348,6 +348,47 @@ const ogImage = '/images/og-stress-recovery.webp';
         <p class="text-green-700">Active women report feeling more empowered, with workouts becoming sources of strength rather than strain.</p>
       </div>
 
+      <h2>Equipment Recommendations for Recovery</h2>
+      <p>Recovery equipment should match your training intensity:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- For Occasional Recovery -->
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+            For Occasional Recovery (2-3x/week)
+          </h3>
+          <p class="text-gray-600 mb-6 flex-grow">
+            Budget cold plunges ($150-280) work well for post-workout recovery without major investment.
+          </p>
+          <a 
+            href="/best-cold-plunges-under-300"
+            class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto no-underline"
+            style="color: #1f2937 !important;"
+            aria-label="View Budget-Friendly Cold Plunges Under $300"
+          >
+            View Budget Options →
+          </a>
+        </div>
+
+        <!-- For Serious Athletes -->
+        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <h3 class="font-display font-bold text-xl text-gray-800 mb-4">
+            For Serious Athletes (5-7x/week)
+          </h3>
+          <p class="text-gray-600 mb-6 flex-grow">
+            Automated chiller systems ($800-1,500) provide consistent recovery benefits for high-frequency training.
+          </p>
+          <a 
+            href="/complete-cold-plunge-systems"
+            class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto no-underline"
+            style="color: #1f2937 !important;"
+            aria-label="Explore Complete Systems with Automated Chillers"
+          >
+            Explore Complete Systems →
+          </a>
+        </div>
+      </div>
+
       <h2>Frequently Asked Questions About Cold Plunge Benefits for Women</h2>
       <h2>How often should active women cold plunge for stress relief?</h2>
       <p>Aim for 3-4 times a week, starting with shorter sessions to build tolerance. Consistency helps balance hormones without overwhelming your body.</p>
@@ -463,9 +504,12 @@ const ogImage = '/images/og-stress-recovery.webp';
     // Hamburger menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   </script>
 </BaseLayout>
 
