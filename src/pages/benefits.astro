@@ -41,6 +41,13 @@ const ogImage = '/images/social-share.jpg';
         font-family: 'Open Sans', sans-serif;
       }
       
+      /* Initial state - hide cards before animation */
+      .pillar-card {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      
+      /* Animation keyframes */
       @keyframes slideInUp {
         from {
           opacity: 0;
@@ -50,6 +57,11 @@ const ogImage = '/images/social-share.jpg';
           opacity: 1;
           transform: translateY(0);
         }
+      }
+      
+      /* Animated state */
+      .pillar-card.animate-in {
+        animation: slideInUp 0.8s ease-out forwards;
       }
     </style>
   </Fragment>
@@ -204,7 +216,7 @@ const ogImage = '/images/social-share.jpg';
               Explore our guide to affordable cold plunges under $300 - perfect for testing the practice without major investment.
             </p>
             <a 
-              href="/best-cold-plunges-under-300"
+              href="/tubs/best-cold-plunge-tubs-for-women-under-300"
               class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 mt-auto"
               aria-label="View Budget-Friendly Cold Plunges Under $300"
             >
@@ -221,7 +233,7 @@ const ogImage = '/images/social-share.jpg';
               If you're ready to eliminate ice purchases, check out our complete cold plunge systems with chillers review.
             </p>
             <a 
-              href="/complete-cold-plunge-systems"
+              href="/tubs/complete-cold-plunge-systems-with-chillers"
               class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 mt-auto"
               aria-label="Explore Complete Systems with Automated Chillers"
             >
@@ -269,7 +281,7 @@ const ogImage = '/images/social-share.jpg';
               Perfect for testing the waters without a major investment. These budget-friendly options let you experience the benefits without breaking the bank.
             </p>
             <a 
-              href="/best-cold-plunges-under-300"
+              href="/tubs/best-cold-plunge-tubs-for-women-under-300"
               class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto"
               aria-label="View Budget-Friendly Cold Plunges Under $300"
             >
@@ -286,7 +298,7 @@ const ogImage = '/images/social-share.jpg';
               Complete systems with automated chillers for serious practitioners who want to eliminate ice purchases and maintain consistent temperatures.
             </p>
             <a 
-              href="/complete-cold-plunge-systems"
+              href="/tubs/complete-cold-plunge-systems-with-chillers"
               class="inline-block bg-gold-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-600 transition-colors duration-300 mt-auto"
               aria-label="Explore Complete Systems with Automated Chillers"
             >
@@ -340,8 +352,8 @@ const ogImage = '/images/social-share.jpg';
     // Intersection Observer for pillar cards animation
     document.addEventListener('DOMContentLoaded', function() {
       const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -20px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -351,20 +363,19 @@ const ogImage = '/images/social-share.jpg';
             cards.forEach((card, cardIndex) => {
               setTimeout(() => {
                 if (card instanceof HTMLElement) {
-                  card.style.opacity = '1';
-                  card.style.animation = 'slideInUp 0.8s ease-out forwards';
+                  card.classList.add('animate-in');
                 }
-              }, cardIndex * 200);
+              }, cardIndex * 150);
             });
             observer.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      // Observe pillar cards section
-      const cardsSection = document.querySelector('.grid');
-      if (cardsSection) {
-        observer.observe(cardsSection);
+      // Observe specific pillar cards section
+      const pillarCardsSection = document.querySelector('section.mb-16 .grid');
+      if (pillarCardsSection) {
+        observer.observe(pillarCardsSection);
       }
     });
   </script>
