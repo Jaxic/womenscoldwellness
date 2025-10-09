@@ -7,7 +7,6 @@ heroImage: "/images/cold-water-therapy-anxiety-women.webp"
 tags: ["anxiety relief", "mental health", "cold therapy", "stress management"]
 benefitsPage: "/benefits/stress-recovery"
 featured: true
-draft: false
 ---
 
 
