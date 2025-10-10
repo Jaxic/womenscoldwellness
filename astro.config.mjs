@@ -7,6 +7,9 @@ import { rehypeTargetBlank } from './src/plugins/targetBlank.js';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.womenscoldwellness.com',
+  build: {
+    inlineStylesheets: 'auto',
+  },
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -21,6 +24,14 @@ export default defineConfig({
     ]
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      cssCodeSplit: false,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        }
+      }
+    }
   }
 });
