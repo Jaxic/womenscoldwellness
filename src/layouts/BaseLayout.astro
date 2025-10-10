@@ -40,6 +40,12 @@ const fullOgImage = new URL(ogImage, Astro.site ?? 'https://www.womenscoldwellne
   <!-- Canonical URL -->
   <link rel="canonical" href={fullCanonicalURL} />
   
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="/fonts/montserrat-700.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/montserrat-800.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/opensans-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/opensans-600.ttf" as="font" type="font/ttf" crossorigin>
+  
   <!-- Open Graph Tags -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
