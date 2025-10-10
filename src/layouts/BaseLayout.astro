@@ -40,7 +40,12 @@ const fullOgImage = new URL(ogImage, Astro.site ?? 'https://www.womenscoldwellne
   <!-- Canonical URL -->
   <link rel="canonical" href={fullCanonicalURL} />
   
+  <!-- Preconnect to external origins -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  
   <!-- Preload critical fonts -->
+  <link rel="preload" href="/fonts/montserrat-600.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/montserrat-700.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/montserrat-800.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/opensans-400.ttf" as="font" type="font/ttf" crossorigin>
@@ -69,22 +74,41 @@ const fullOgImage = new URL(ogImage, Astro.site ?? 'https://www.womenscoldwellne
   <!-- Additional SEO Meta Tags -->
   <meta name="author" content={author} />
   
-  <!-- Google Analytics 4 - GLOBAL -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LYL708DKYY', {
-      page_title: document.title,
-      page_location: window.location.href
-    });
-  </script>
   
   <slot name="head" />
 </head>
 <body>
   <slot />
+  
+  <!-- Google Analytics 4 - Moved to bottom to prevent forced reflow -->
+  <script>
+    // Load Google Analytics with idle callback to prevent layout thrashing
+    function loadGoogleAnalytics() {
+      // Load gtag script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-LYL708DKYY';
+      document.head.appendChild(script);
+      
+      // Initialize analytics
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LYL708DKYY', {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+      window.gtag = gtag;
+    }
+    
+    // Use requestIdleCallback to defer analytics loading
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGoogleAnalytics);
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(loadGoogleAnalytics, 100);
+    }
+  </script>
   
   <!-- Vercel Analytics -->
   <script>
