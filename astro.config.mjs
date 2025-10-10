@@ -8,7 +8,7 @@ import { rehypeTargetBlank } from './src/plugins/targetBlank.js';
 export default defineConfig({
   site: 'https://www.womenscoldwellness.com',
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
   integrations: [
     sitemap({
